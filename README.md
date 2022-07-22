@@ -76,7 +76,7 @@ end
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at [yaml-vfs](https://github.com/Cat1237/cocoapods-project-gen). This project is intended to be a safe, welcoming space for collaboration.
+Bug reports and pull requests are welcome on GitHub at [cocoapods-project-gen](https://github.com/Cat1237/cocoapods-project-gen). This project is intended to be a safe, welcoming space for collaboration.
 
 ## License
 
