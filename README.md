@@ -25,18 +25,30 @@ Or install it yourself as:
 # gem install
 $ gem install cocoapods-project-gen
 ```
+
 ### Quickstart
+
+To begin gen an cocoapods project by opening an podpsec dir, and to your command line with:
+
+```shell
+xcframework gen 
+```
+
+or
+
+```shell
+xcframework gen --output-dir=<xcframework output dir>
+```
+
+```shell
+xcframework gen --output-dir=<xcframework output dir> **.podspec
+```
 
 To begin gen an cocoapods project start by create an `ProjectGenerator`:
 
 ```ruby
-require 'cocoapods-project-gen'
-podspecs = Pathname.glob(File.expand_path("./Resources/AFNetworking-master", __dir__) + '/*.podspec{.json,}')
-out_put = File.expand_path("./Resources/output", __dir__)
-gen = ProjectGen::ProjectGenerator.new_from_local(podspecs, [])
-gen.generate!(out_put) do |platforms, pod_targets, validated|
-    p platforms, pod_targets, validated
-end
+podspecs = [**.podspec]
+ProjectGen::Command.run(['gen', "--output-dir=#{File.expand_path('./Resources/output', __dir__)}", podspecs.join(',')])
 ```
 
 or use this way:
@@ -49,6 +61,7 @@ use_module = true
 include_podspecs = []
 swift_version = '4.2'
 configuration = :release
+output_dir = <output dir>
 generator = ProjectGen::ProjectGenerator.new(include_podspecs.first, @sources, @platforms)
 generator.local = false
 generator.no_clean       = false
@@ -62,17 +75,19 @@ generator.skip_import_validation = true
 generator.external_podspecs = include_podspecs.drop(1)
 generator.swift_version = swift_version
 generator.configuration = configuration
-generator.skip_tests = true
-begin
-    generator.generate!(spec_root) do |platform, pod_targets, validated|
-        raise 'Could not generator App.xcodeproj' unless validated
-
-    end
-rescue StandardError => e
-    raise Pod::Informative, "The `#{@include_podspecs.join(' ')}` specification does not validate." \
-                    "\n\n#{e.message}"
-end
+# xcframework gen
+xc_gen = ProjectGen::XcframeworkGen.new(generator)
+xc_gen.generate_xcframework(output_dir)
 ```
+
+## Command Line Tool
+
+Installing the `cocoapods-project-gen` gem will also install one command-line tool `xcframework gen`  which you can use to generate xcframework from podspec.
+
+For more information consult
+
+- `xcframework --help`
+- `xcframework gen --help`
 
 ## Contributing
 

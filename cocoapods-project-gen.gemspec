@@ -14,8 +14,9 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
   spec.files         = %w[README.md LICENSE] + Dir['lib/**/*.rb']
   spec.require_paths = ['lib']
+  spec.executables   = %w[xcframework]
 
-  spec.add_runtime_dependency 'cocoapods', '~> 1.10.0'
+  spec.add_runtime_dependency 'cocoapods', '~> 1.11.3'
   spec.add_development_dependency 'rspec', '>= 3.0'
   spec.required_ruby_version = '>= 2.6'
 end

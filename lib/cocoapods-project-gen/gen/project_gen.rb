@@ -1,10 +1,13 @@
-require 'cocoapods/validator'
+require 'cocoapods'
 require 'cocoapods-project-gen/gen/swift_module_helper'
+require 'cocoapods-project-gen/gen/project_gen_helper'
 require 'fileutils'
 
 module ProjectGen
   class ProjectGenerator < Pod::Validator
+    include Pod
     include ProjectGen::SwiftModule
+    include ProjectGen::Helper
 
     # Initialize a new instance
     #
@@ -26,7 +29,7 @@ module ProjectGen
     #
     # @param  [Boolean] Whether modular headers should be used for the installation.
     #
-    def self.new_from_local(podspecs, source_urls, platforms = [], product_type = :framework, configuration = :release, swift_version = nil, use_modular_headers: false)
+    def self.new_from_local(podspecs = [], source_urls = [Pod::Installer::MASTER_SPECS_REPO_GIT_URL], platforms = [], product_type = :framework, configuration = :release, swift_version = nil, use_modular_headers: false)
       generator = new(podspecs[0], source_urls, platforms)
       generator.local = false
       generator.no_subspecs    = true
@@ -45,7 +48,7 @@ module ProjectGen
     end
 
     # Create app project
-    # 
+    #
     # @param [String, Pathname] dir the temporary directory used by the Gen.
     #
     # @param  [block<platform, pod_targets, valid>] &block the block to execute inside the lock.
@@ -61,7 +64,10 @@ module ProjectGen
         @subspec_name = a_spec.name
       end
       @validation_dir = dir
-      Pod::UI.print " -> #{a_spec ? a_spec.name : file.basename}\r" unless config.silent?
+      unless config.silent?
+        Pod::UI.print " -> #{file.basename}\r\n"
+        external_podspecs.each { |e| Pod::UI.print " -> #{File.basename(e)}\r\n" } unless external_podspecs&.nil?
+      end
       $stdout.flush
       send(:perform_linting) if respond_to?(:perform_linting)
       install(a_spec, dir, &block) if a_spec && !quick
@@ -75,25 +81,29 @@ module ProjectGen
 
     private
 
-    # Perform analysis for a given spec (or subspec)
-    #
     def install(spec, dir, &block)
       if spec.non_library_specification?
         error('spec', "Validating a non library spec (`#{spec.name}`) is not supported.")
         return false
       end
       platforms = send(:platforms_to_lint, spec)
-      valid = platforms.send(fail_fast ? :all? : :each) do |platform|
-        Pod::UI.message "\n\n#{spec} - Analyzing on #{platform} platform.".green.reversed
-        @consumer = spec.consumer(platform)
-        c_method = %i[setup_validation_environment create_app_project handle_local_pod
-                      check_file_patterns install_pod validate_swift_version
-                      add_app_project_import validate_vendored_dynamic_frameworks]
-        begin
-          c_method.each { |m| send(m) }
-          valid = validated?
+      begin
+        setup_validation_environment
+        create_app_project(platforms)
+        handle_local_pod(platforms)
+        check_file_patterns(spec)
+        install_pod(platforms)
+        validate_swift_version
+        add_app_project_import(platforms)
+        validate_vendored_dynamic_frameworks(platforms)
+        valid = validated?
+        ts = pod_targets.each_with_object({}) do |pod_target, sum|
+          name = pod_target.root_spec.name
+          sum[name] ||= []
+          sum[name] << pod_target
+          sum
         end
-        block.call(platform, pod_targets, valid) unless block&.nil?
+        block.call(platforms, ts, valid, @no_clean) unless block&.nil?
         return false if fail_fast && !valid
 
         generate_subspec(spec, dir, &block) unless @no_subspecs
@@ -110,12 +120,16 @@ module ProjectGen
       end
     end
 
-    def handle_local_pod
+    def handle_local_pod(platforms)
       sandbox = Pod::Sandbox.new(@validation_dir + 'Pods')
-      test_spec_names = consumer.spec.test_specs.select do |ts|
-        ts.supported_on_platform?(consumer.platform_name)
-      end.map(&:name)
-      podfile = podfile_from_spec(consumer.platform_name, deployment_target, use_frameworks, test_spec_names,
+      test_spec_names = platforms.map do |platform|
+        consumer = spec.consumer(platform)
+        consumer.spec.test_specs.select do |ts|
+          ts.supported_on_platform?(platform.name)
+        end.map(&:name)
+      end
+
+      podfile = podfile_from_spec(platforms, use_frameworks, test_spec_names,
                                   use_modular_headers, use_static_frameworks)
 
       @installer = Pod::Installer.new(sandbox, podfile)
@@ -134,10 +148,10 @@ module ProjectGen
           podspecs.each { |s| sandbox.store_local_path(s.name, s.defined_in_file, absolute?(s.defined_in_file)) }
         end
       end
-      library_targets = pod_targets.select { |target| target.build_as_library? }
+      library_targets = pod_targets.select(&:build_as_library?)
       add_swift_library_compatibility_header(library_targets)
       @file_accessor = pod_targets.flat_map(&:file_accessors).find do |fa|
-        fa.spec.name == consumer.spec.name
+        fa.spec.name == spec.name
       end
     end
 
