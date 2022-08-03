@@ -80,7 +80,7 @@ xc_gen = ProjectGen::XcframeworkGen.new(generator)
 xc_gen.generate_xcframework(output_dir)
 ```
 
-other option:
+other options:
 
 ```ruby
 ['--no-build', 'Is or is not to build xcframework'],
