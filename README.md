@@ -48,7 +48,7 @@ To begin gen an cocoapods project start by create an `ProjectGenerator`:
 
 ```ruby
 podspecs = [**.podspec]
-ProjectGen::Command.run(['gen', "--output-dir=#{File.expand_path('./Resources/output', __dir__)}", podspecs.join(' ')])
+ProjectGen::Command.run(['gen', "--output-dir=#{File.expand_path('./Resources/output', __dir__)}", *podspecs])
 ```
 
 or to build for xcframework use this way:
