@@ -4,7 +4,6 @@ module ProjectGen
   module Constants
     PRODUCT_DIR = 'Products'.freeze
 
-    BIN_ROOT_DIR = '/private/tmp/cocoapods-amber-bin'
     COPY_LIBRARY_SWIFT_HEADERS = 'Copy-Library-Swift-Headers'
 
     def self.sdks(platform_name)

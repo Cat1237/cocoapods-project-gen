@@ -1,0 +1,1387 @@
+BCSymbolMap Version: 2.0
+Apple clang version 13.0.0 (clang-1300.0.29.30)
+/Applications/Xcode.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk
+WatchOS8.3.sdk
+/Users/ws/Library/Developer/Xcode/DerivedData/Pods-ervvbywbrejxdncuddmrezpdsurz/ArchiveIntermediates/Pods-App-watchos/IntermediateBuildFilesPath/Pods.build/Release-watchos/AFNetworking.root-NSURLSession-Security-Serialization.build/DerivedSources/AFNetworking_vers.c
+/Users/ws/Documents/MyLib/cocoapods-project-gen/spec/cocoapods/Resources/output/project_gen/App/Pods
++[AFHTTPSessionManager manager]
+-[AFHTTPSessionManager init]
+-[AFHTTPSessionManager initWithBaseURL:]
+-[AFHTTPSessionManager initWithSessionConfiguration:]
+-[AFHTTPSessionManager initWithBaseURL:sessionConfiguration:]
+-[AFHTTPSessionManager setRequestSerializer:]
+-[AFHTTPSessionManager setResponseSerializer:]
+-[AFHTTPSessionManager setSecurityPolicy:]
+-[AFHTTPSessionManager GET:parameters:headers:progress:success:failure:]
+-[AFHTTPSessionManager HEAD:parameters:headers:success:failure:]
+___64-[AFHTTPSessionManager HEAD:parameters:headers:success:failure:]_block_invoke
+___copy_helper_block_e4_20b
+___destroy_helper_block_e4_20s
+-[AFHTTPSessionManager POST:parameters:headers:progress:success:failure:]
+-[AFHTTPSessionManager POST:parameters:headers:constructingBodyWithBlock:progress:success:failure:]
+___99-[AFHTTPSessionManager POST:parameters:headers:constructingBodyWithBlock:progress:success:failure:]_block_invoke
+___copy_helper_block_e4_20b24s
+___destroy_helper_block_e4_20s24s
+___Block_byref_object_copy_
+___Block_byref_object_dispose_
+___99-[AFHTTPSessionManager POST:parameters:headers:constructingBodyWithBlock:progress:success:failure:]_block_invoke.87
+___copy_helper_block_e4_20b24b28r
+___destroy_helper_block_e4_20s24s28r
+-[AFHTTPSessionManager PUT:parameters:headers:success:failure:]
+-[AFHTTPSessionManager PATCH:parameters:headers:success:failure:]
+-[AFHTTPSessionManager DELETE:parameters:headers:success:failure:]
+-[AFHTTPSessionManager dataTaskWithHTTPMethod:URLString:parameters:headers:uploadProgress:downloadProgress:success:failure:]
+___124-[AFHTTPSessionManager dataTaskWithHTTPMethod:URLString:parameters:headers:uploadProgress:downloadProgress:success:failure:]_block_invoke
+___124-[AFHTTPSessionManager dataTaskWithHTTPMethod:URLString:parameters:headers:uploadProgress:downloadProgress:success:failure:]_block_invoke_2
+-[AFHTTPSessionManager description]
++[AFHTTPSessionManager supportsSecureCoding]
+-[AFHTTPSessionManager initWithCoder:]
+-[AFHTTPSessionManager encodeWithCoder:]
+-[AFHTTPSessionManager copyWithZone:]
+-[AFHTTPSessionManager baseURL]
+-[AFHTTPSessionManager setBaseURL:]
+-[AFHTTPSessionManager requestSerializer]
+-[AFHTTPSessionManager .cxx_destruct]
+_OBJC_SELECTOR_REFERENCES_
+_OBJC_SELECTOR_REFERENCES_.2
+_OBJC_SELECTOR_REFERENCES_.4
+_OBJC_SELECTOR_REFERENCES_.6
+_OBJC_SELECTOR_REFERENCES_.8
+_OBJC_SELECTOR_REFERENCES_.10
+_OBJC_SELECTOR_REFERENCES_.12
+_OBJC_SELECTOR_REFERENCES_.14
+_OBJC_SELECTOR_REFERENCES_.18
+_OBJC_SELECTOR_REFERENCES_.20
+_OBJC_CLASSLIST_REFERENCES_$_
+_OBJC_SELECTOR_REFERENCES_.22
+_OBJC_SELECTOR_REFERENCES_.24
+_OBJC_CLASSLIST_REFERENCES_$_.25
+_OBJC_SELECTOR_REFERENCES_.27
+_OBJC_IVAR_$_AFHTTPSessionManager._requestSerializer
+_OBJC_SELECTOR_REFERENCES_.29
+_OBJC_SELECTOR_REFERENCES_.31
+_OBJC_SELECTOR_REFERENCES_.33
+_OBJC_SELECTOR_REFERENCES_.37
+_OBJC_CLASSLIST_REFERENCES_$_.46
+_OBJC_SELECTOR_REFERENCES_.50
+_OBJC_CLASSLIST_REFERENCES_$_.51
+_OBJC_SELECTOR_REFERENCES_.55
+_OBJC_SELECTOR_REFERENCES_.57
+_OBJC_SELECTOR_REFERENCES_.61
+_OBJC_SELECTOR_REFERENCES_.63
+___block_descriptor_24_e4_20bs_e32_v12?0"NSURLSessionDataTask"48l
+_OBJC_SELECTOR_REFERENCES_.70
+_OBJC_CLASSLIST_REFERENCES_$_.71
+_OBJC_SELECTOR_REFERENCES_.73
+_OBJC_SELECTOR_REFERENCES_.75
+_OBJC_SELECTOR_REFERENCES_.77
+_OBJC_SELECTOR_REFERENCES_.79
+_OBJC_SELECTOR_REFERENCES_.81
+_OBJC_SELECTOR_REFERENCES_.83
+_OBJC_SELECTOR_REFERENCES_.85
+___block_descriptor_28_e4_20bs24s_e5_v4?0l
+___block_descriptor_32_e4_20bs24bs28r_e37_v16?0"NSURLResponse"48"NSError"12l
+_OBJC_SELECTOR_REFERENCES_.90
+_OBJC_SELECTOR_REFERENCES_.98
+_OBJC_SELECTOR_REFERENCES_.100
+_OBJC_SELECTOR_REFERENCES_.104
+_OBJC_SELECTOR_REFERENCES_.106
+_OBJC_SELECTOR_REFERENCES_.108
+_OBJC_CLASSLIST_REFERENCES_$_.109
+_OBJC_SELECTOR_REFERENCES_.115
+_OBJC_CLASSLIST_REFERENCES_$_.116
+_OBJC_SELECTOR_REFERENCES_.118
+_OBJC_CLASSLIST_REFERENCES_$_.119
+_OBJC_SELECTOR_REFERENCES_.121
+_OBJC_SELECTOR_REFERENCES_.123
+_OBJC_SELECTOR_REFERENCES_.125
+_OBJC_SELECTOR_REFERENCES_.127
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_NSCoding
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSCoding
+__OBJC_PROTOCOL_$_NSCoding
+__OBJC_LABEL_PROTOCOL_$_NSCoding
+__OBJC_PROTOCOL_REFERENCE_$_NSCoding
+_OBJC_SELECTOR_REFERENCES_.133
+_OBJC_SELECTOR_REFERENCES_.135
+_OBJC_SELECTOR_REFERENCES_.137
+_OBJC_SELECTOR_REFERENCES_.139
+_OBJC_IVAR_$_AFHTTPSessionManager._baseURL
+__OBJC_$_CLASS_METHODS_AFHTTPSessionManager
+__OBJC_$_PROTOCOL_REFS_NSSecureCoding
+__OBJC_$_PROTOCOL_CLASS_METHODS_NSSecureCoding
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSSecureCoding
+__OBJC_$_CLASS_PROP_LIST_NSSecureCoding
+__OBJC_PROTOCOL_$_NSSecureCoding
+__OBJC_LABEL_PROTOCOL_$_NSSecureCoding
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_NSCopying
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSCopying
+__OBJC_PROTOCOL_$_NSCopying
+__OBJC_LABEL_PROTOCOL_$_NSCopying
+__OBJC_CLASS_PROTOCOLS_$_AFHTTPSessionManager
+__OBJC_$_CLASS_PROP_LIST_AFHTTPSessionManager
+__OBJC_METACLASS_RO_$_AFHTTPSessionManager
+__OBJC_$_INSTANCE_METHODS_AFHTTPSessionManager
+__OBJC_$_INSTANCE_VARIABLES_AFHTTPSessionManager
+__OBJC_$_PROP_LIST_AFHTTPSessionManager
+__OBJC_CLASS_RO_$_AFHTTPSessionManager
+/Users/ws/Documents/MyLib/cocoapods-project-gen/spec/cocoapods/Resources/output/project_gen/App/Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.m
+AFNetworking/AFNetworking/AFHTTPSessionManager.m
+AFNetworking/AFNetworking/AFHTTPSessionManager.h
+__124-[AFHTTPSessionManager dataTaskWithHTTPMethod:URLString:parameters:headers:uploadProgress:downloadProgress:success:failure:]_block_invoke_2
+__124-[AFHTTPSessionManager dataTaskWithHTTPMethod:URLString:parameters:headers:uploadProgress:downloadProgress:success:failure:]_block_invoke
+__destroy_helper_block_e4_20s24s28r
+__copy_helper_block_e4_20b24b28r
+__99-[AFHTTPSessionManager POST:parameters:headers:constructingBodyWithBlock:progress:success:failure:]_block_invoke.87
+__Block_byref_object_dispose_
+__Block_byref_object_copy_
+__destroy_helper_block_e4_20s24s
+__copy_helper_block_e4_20b24s
+__99-[AFHTTPSessionManager POST:parameters:headers:constructingBodyWithBlock:progress:success:failure:]_block_invoke
+__destroy_helper_block_e4_20s
+__copy_helper_block_e4_20b
+__64-[AFHTTPSessionManager HEAD:parameters:headers:success:failure:]_block_invoke
+__OBJC_METACLASS_RO_$_PodsDummy_AFNetworking_root_NSURLSession_Security_Serialization
+__OBJC_CLASS_RO_$_PodsDummy_AFNetworking_root_NSURLSession_Security_Serialization
+/Users/ws/Documents/MyLib/cocoapods-project-gen/spec/cocoapods/Resources/output/project_gen/App/Pods/Target Support Files/AFNetworking.root-NSURLSession-Security-Serialization/AFNetworking.root-NSURLSession-Security-Serialization-dummy.m
++[AFSecurityPolicy certificatesInBundle:]
++[AFSecurityPolicy defaultPolicy]
++[AFSecurityPolicy policyWithPinningMode:]
++[AFSecurityPolicy policyWithPinningMode:withPinnedCertificates:]
+-[AFSecurityPolicy init]
+-[AFSecurityPolicy setPinnedCertificates:]
+-[AFSecurityPolicy evaluateServerTrust:forDomain:]
++[AFSecurityPolicy keyPathsForValuesAffectingPinnedPublicKeys]
++[AFSecurityPolicy supportsSecureCoding]
+-[AFSecurityPolicy initWithCoder:]
+-[AFSecurityPolicy encodeWithCoder:]
+-[AFSecurityPolicy copyWithZone:]
+-[AFSecurityPolicy SSLPinningMode]
+-[AFSecurityPolicy setSSLPinningMode:]
+-[AFSecurityPolicy pinnedCertificates]
+-[AFSecurityPolicy allowInvalidCertificates]
+-[AFSecurityPolicy setAllowInvalidCertificates:]
+-[AFSecurityPolicy validatesDomainName]
+-[AFSecurityPolicy setValidatesDomainName:]
+-[AFSecurityPolicy pinnedPublicKeys]
+-[AFSecurityPolicy setPinnedPublicKeys:]
+-[AFSecurityPolicy .cxx_destruct]
+_OBJC_CLASSLIST_REFERENCES_$_.9
+_OBJC_SELECTOR_REFERENCES_.11
+_OBJC_SELECTOR_REFERENCES_.13
+_OBJC_CLASSLIST_REFERENCES_$_.14
+_OBJC_SELECTOR_REFERENCES_.16
+_OBJC_CLASSLIST_REFERENCES_$_.21
+_OBJC_SELECTOR_REFERENCES_.23
+_OBJC_SELECTOR_REFERENCES_.25
+_OBJC_SELECTOR_REFERENCES_.35
+_OBJC_SELECTOR_REFERENCES_.39
+_OBJC_SELECTOR_REFERENCES_.41
+_OBJC_CLASSLIST_REFERENCES_$_.44
+_OBJC_SELECTOR_REFERENCES_.46
+_OBJC_SELECTOR_REFERENCES_.48
+_OBJC_SELECTOR_REFERENCES_.52
+_OBJC_SELECTOR_REFERENCES_.56
+_OBJC_CLASSLIST_REFERENCES_$_.57
+_OBJC_SELECTOR_REFERENCES_.59
+_OBJC_SELECTOR_REFERENCES_.65
+_OBJC_SELECTOR_REFERENCES_.67
+_OBJC_SELECTOR_REFERENCES_.69
+_OBJC_SELECTOR_REFERENCES_.71
+__OBJC_$_CLASS_METHODS_AFSecurityPolicy
+__OBJC_CLASS_PROTOCOLS_$_AFSecurityPolicy
+__OBJC_$_CLASS_PROP_LIST_AFSecurityPolicy
+__OBJC_METACLASS_RO_$_AFSecurityPolicy
+__OBJC_$_INSTANCE_METHODS_AFSecurityPolicy
+_OBJC_IVAR_$_AFSecurityPolicy._allowInvalidCertificates
+_OBJC_IVAR_$_AFSecurityPolicy._validatesDomainName
+_OBJC_IVAR_$_AFSecurityPolicy._SSLPinningMode
+_OBJC_IVAR_$_AFSecurityPolicy._pinnedCertificates
+_OBJC_IVAR_$_AFSecurityPolicy._pinnedPublicKeys
+__OBJC_$_INSTANCE_VARIABLES_AFSecurityPolicy
+__OBJC_$_PROP_LIST_AFSecurityPolicy
+__OBJC_CLASS_RO_$_AFSecurityPolicy
+_OBJC_CLASSLIST_REFERENCES_$_.124
+_OBJC_SELECTOR_REFERENCES_.126
+_OBJC_SELECTOR_REFERENCES_.128
+/Users/ws/Documents/MyLib/cocoapods-project-gen/spec/cocoapods/Resources/output/project_gen/App/Pods/AFNetworking/AFNetworking/AFSecurityPolicy.m
+AFNetworking/AFNetworking/AFSecurityPolicy.m
+AFNetworking/AFNetworking/AFSecurityPolicy.h
+AFSecKeyIsEqualToKey
+AFPublicKeyTrustChainForServerTrust
+llvm.loop.mustprogress
+AFCertificateTrustChainForServerTrust
+AFServerTrustIsValid
+AFPublicKeyForCertificate
+-[AFQueryStringPair initWithField:value:]
+-[AFQueryStringPair URLEncodedStringValue]
+-[AFQueryStringPair field]
+-[AFQueryStringPair setField:]
+-[AFQueryStringPair value]
+-[AFQueryStringPair setValue:]
+-[AFQueryStringPair .cxx_destruct]
++[AFHTTPRequestSerializer serializer]
+-[AFHTTPRequestSerializer init]
+___31-[AFHTTPRequestSerializer init]_block_invoke
+___copy_helper_block_e4_20s
+-[AFHTTPRequestSerializer dealloc]
+-[AFHTTPRequestSerializer setAllowsCellularAccess:]
+-[AFHTTPRequestSerializer setCachePolicy:]
+-[AFHTTPRequestSerializer setHTTPShouldHandleCookies:]
+-[AFHTTPRequestSerializer setHTTPShouldUsePipelining:]
+-[AFHTTPRequestSerializer setNetworkServiceType:]
+-[AFHTTPRequestSerializer setTimeoutInterval:]
+-[AFHTTPRequestSerializer HTTPRequestHeaders]
+___45-[AFHTTPRequestSerializer HTTPRequestHeaders]_block_invoke
+___copy_helper_block_e4_20s24r
+___destroy_helper_block_e4_20s24r
+-[AFHTTPRequestSerializer setValue:forHTTPHeaderField:]
+___55-[AFHTTPRequestSerializer setValue:forHTTPHeaderField:]_block_invoke
+___copy_helper_block_e4_20s24s28s
+___destroy_helper_block_e4_20s24s28s
+-[AFHTTPRequestSerializer valueForHTTPHeaderField:]
+___51-[AFHTTPRequestSerializer valueForHTTPHeaderField:]_block_invoke
+___copy_helper_block_e4_20s24s28r
+-[AFHTTPRequestSerializer setAuthorizationHeaderFieldWithUsername:password:]
+-[AFHTTPRequestSerializer clearAuthorizationHeader]
+___51-[AFHTTPRequestSerializer clearAuthorizationHeader]_block_invoke
+-[AFHTTPRequestSerializer setQueryStringSerializationWithStyle:]
+-[AFHTTPRequestSerializer setQueryStringSerializationWithBlock:]
+-[AFHTTPRequestSerializer requestWithMethod:URLString:parameters:error:]
+-[AFHTTPRequestSerializer multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error:]
+-[AFHTTPRequestSerializer requestWithMultipartFormRequest:writingStreamContentsToFile:completionHandler:]
+___105-[AFHTTPRequestSerializer requestWithMultipartFormRequest:writingStreamContentsToFile:completionHandler:]_block_invoke
+___105-[AFHTTPRequestSerializer requestWithMultipartFormRequest:writingStreamContentsToFile:completionHandler:]_block_invoke_2
+___copy_helper_block_e4_20b24r
+___copy_helper_block_e4_20s24s28b32r
+___destroy_helper_block_e4_20s24s28s32r
+-[AFHTTPRequestSerializer requestBySerializingRequest:withParameters:error:]
+___76-[AFHTTPRequestSerializer requestBySerializingRequest:withParameters:error:]_block_invoke
+___copy_helper_block_e4_20s24s
++[AFHTTPRequestSerializer automaticallyNotifiesObserversForKey:]
+-[AFHTTPRequestSerializer observeValueForKeyPath:ofObject:change:context:]
++[AFHTTPRequestSerializer supportsSecureCoding]
+-[AFHTTPRequestSerializer initWithCoder:]
+-[AFHTTPRequestSerializer encodeWithCoder:]
+___43-[AFHTTPRequestSerializer encodeWithCoder:]_block_invoke
+-[AFHTTPRequestSerializer copyWithZone:]
+___40-[AFHTTPRequestSerializer copyWithZone:]_block_invoke
+-[AFHTTPRequestSerializer stringEncoding]
+-[AFHTTPRequestSerializer setStringEncoding:]
+-[AFHTTPRequestSerializer allowsCellularAccess]
+-[AFHTTPRequestSerializer cachePolicy]
+-[AFHTTPRequestSerializer HTTPShouldHandleCookies]
+-[AFHTTPRequestSerializer HTTPShouldUsePipelining]
+-[AFHTTPRequestSerializer networkServiceType]
+-[AFHTTPRequestSerializer timeoutInterval]
+-[AFHTTPRequestSerializer HTTPMethodsEncodingParametersInURI]
+-[AFHTTPRequestSerializer setHTTPMethodsEncodingParametersInURI:]
+-[AFHTTPRequestSerializer mutableObservedChangedKeyPaths]
+-[AFHTTPRequestSerializer setMutableObservedChangedKeyPaths:]
+-[AFHTTPRequestSerializer mutableHTTPRequestHeaders]
+-[AFHTTPRequestSerializer setMutableHTTPRequestHeaders:]
+-[AFHTTPRequestSerializer requestHeaderModificationQueue]
+-[AFHTTPRequestSerializer setRequestHeaderModificationQueue:]
+-[AFHTTPRequestSerializer queryStringSerializationStyle]
+-[AFHTTPRequestSerializer setQueryStringSerializationStyle:]
+-[AFHTTPRequestSerializer queryStringSerialization]
+-[AFHTTPRequestSerializer setQueryStringSerialization:]
+-[AFHTTPRequestSerializer .cxx_destruct]
+-[AFStreamingMultipartFormData initWithURLRequest:stringEncoding:]
+-[AFStreamingMultipartFormData setRequest:]
+-[AFStreamingMultipartFormData appendPartWithFileURL:name:error:]
+-[AFStreamingMultipartFormData appendPartWithFileURL:name:fileName:mimeType:error:]
+-[AFStreamingMultipartFormData appendPartWithInputStream:name:fileName:length:mimeType:]
+-[AFStreamingMultipartFormData appendPartWithFileData:name:fileName:mimeType:]
+-[AFStreamingMultipartFormData appendPartWithFormData:name:]
+-[AFStreamingMultipartFormData appendPartWithHeaders:body:]
+-[AFStreamingMultipartFormData throttleBandwidthWithPacketSize:delay:]
+-[AFStreamingMultipartFormData requestByFinalizingMultipartFormData]
+-[AFStreamingMultipartFormData request]
+-[AFStreamingMultipartFormData stringEncoding]
+-[AFStreamingMultipartFormData setStringEncoding:]
+-[AFStreamingMultipartFormData boundary]
+-[AFStreamingMultipartFormData setBoundary:]
+-[AFStreamingMultipartFormData bodyStream]
+-[AFStreamingMultipartFormData setBodyStream:]
+-[AFStreamingMultipartFormData .cxx_destruct]
+-[AFMultipartBodyStream initWithStringEncoding:]
+-[AFMultipartBodyStream setInitialAndFinalBoundaries]
+-[AFMultipartBodyStream appendHTTPBodyPart:]
+-[AFMultipartBodyStream isEmpty]
+-[AFMultipartBodyStream read:maxLength:]
+-[AFMultipartBodyStream getBuffer:length:]
+-[AFMultipartBodyStream hasBytesAvailable]
+-[AFMultipartBodyStream open]
+-[AFMultipartBodyStream close]
+-[AFMultipartBodyStream propertyForKey:]
+-[AFMultipartBodyStream setProperty:forKey:]
+-[AFMultipartBodyStream scheduleInRunLoop:forMode:]
+-[AFMultipartBodyStream removeFromRunLoop:forMode:]
+-[AFMultipartBodyStream contentLength]
+-[AFMultipartBodyStream _scheduleInCFRunLoop:forMode:]
+-[AFMultipartBodyStream _unscheduleFromCFRunLoop:forMode:]
+-[AFMultipartBodyStream _setCFClientFlags:callback:context:]
+-[AFMultipartBodyStream copyWithZone:]
+-[AFMultipartBodyStream delegate]
+-[AFMultipartBodyStream setDelegate:]
+-[AFMultipartBodyStream streamStatus]
+-[AFMultipartBodyStream setStreamStatus:]
+-[AFMultipartBodyStream streamError]
+-[AFMultipartBodyStream setStreamError:]
+-[AFMultipartBodyStream numberOfBytesInPacket]
+-[AFMultipartBodyStream setNumberOfBytesInPacket:]
+-[AFMultipartBodyStream delay]
+-[AFMultipartBodyStream setDelay:]
+-[AFMultipartBodyStream inputStream]
+-[AFMultipartBodyStream setInputStream:]
+-[AFMultipartBodyStream stringEncoding]
+-[AFMultipartBodyStream setStringEncoding:]
+-[AFMultipartBodyStream HTTPBodyParts]
+-[AFMultipartBodyStream setHTTPBodyParts:]
+-[AFMultipartBodyStream HTTPBodyPartEnumerator]
+-[AFMultipartBodyStream setHTTPBodyPartEnumerator:]
+-[AFMultipartBodyStream currentHTTPBodyPart]
+-[AFMultipartBodyStream setCurrentHTTPBodyPart:]
+-[AFMultipartBodyStream outputStream]
+-[AFMultipartBodyStream setOutputStream:]
+-[AFMultipartBodyStream buffer]
+-[AFMultipartBodyStream setBuffer:]
+-[AFMultipartBodyStream .cxx_destruct]
+-[AFHTTPBodyPart init]
+-[AFHTTPBodyPart dealloc]
+-[AFHTTPBodyPart inputStream]
+-[AFHTTPBodyPart stringForHeaders]
+-[AFHTTPBodyPart contentLength]
+-[AFHTTPBodyPart hasBytesAvailable]
+-[AFHTTPBodyPart read:maxLength:]
+-[AFHTTPBodyPart readData:intoBuffer:maxLength:]
+-[AFHTTPBodyPart transitionToNextPhase]
+___39-[AFHTTPBodyPart transitionToNextPhase]_block_invoke
+-[AFHTTPBodyPart copyWithZone:]
+-[AFHTTPBodyPart stringEncoding]
+-[AFHTTPBodyPart setStringEncoding:]
+-[AFHTTPBodyPart headers]
+-[AFHTTPBodyPart setHeaders:]
+-[AFHTTPBodyPart boundary]
+-[AFHTTPBodyPart setBoundary:]
+-[AFHTTPBodyPart body]
+-[AFHTTPBodyPart setBody:]
+-[AFHTTPBodyPart bodyContentLength]
+-[AFHTTPBodyPart setBodyContentLength:]
+-[AFHTTPBodyPart setInputStream:]
+-[AFHTTPBodyPart hasInitialBoundary]
+-[AFHTTPBodyPart setHasInitialBoundary:]
+-[AFHTTPBodyPart hasFinalBoundary]
+-[AFHTTPBodyPart setHasFinalBoundary:]
+-[AFHTTPBodyPart .cxx_destruct]
++[AFJSONRequestSerializer serializer]
++[AFJSONRequestSerializer serializerWithWritingOptions:]
+-[AFJSONRequestSerializer requestBySerializingRequest:withParameters:error:]
+___76-[AFJSONRequestSerializer requestBySerializingRequest:withParameters:error:]_block_invoke
+-[AFJSONRequestSerializer initWithCoder:]
+-[AFJSONRequestSerializer encodeWithCoder:]
+-[AFJSONRequestSerializer copyWithZone:]
+-[AFJSONRequestSerializer writingOptions]
+-[AFJSONRequestSerializer setWritingOptions:]
++[AFPropertyListRequestSerializer serializer]
++[AFPropertyListRequestSerializer serializerWithFormat:writeOptions:]
+-[AFPropertyListRequestSerializer requestBySerializingRequest:withParameters:error:]
+___84-[AFPropertyListRequestSerializer requestBySerializingRequest:withParameters:error:]_block_invoke
+-[AFPropertyListRequestSerializer initWithCoder:]
+-[AFPropertyListRequestSerializer encodeWithCoder:]
+-[AFPropertyListRequestSerializer copyWithZone:]
+-[AFPropertyListRequestSerializer format]
+-[AFPropertyListRequestSerializer setFormat:]
+-[AFPropertyListRequestSerializer writeOptions]
+-[AFPropertyListRequestSerializer setWriteOptions:]
+_AFHTTPRequestSerializerObservedKeyPaths
+___AFHTTPRequestSerializerObservedKeyPaths_block_invoke
+_OBJC_SELECTOR_REFERENCES_.26
+_OBJC_SELECTOR_REFERENCES_.28
+_OBJC_SELECTOR_REFERENCES_.30
+_OBJC_SELECTOR_REFERENCES_.32
+_OBJC_CLASSLIST_REFERENCES_$_.33
+_OBJC_CLASSLIST_REFERENCES_$_.42
+__OBJC_METACLASS_RO_$_AFQueryStringPair
+__OBJC_$_INSTANCE_METHODS_AFQueryStringPair
+_OBJC_IVAR_$_AFQueryStringPair._field
+_OBJC_IVAR_$_AFQueryStringPair._value
+__OBJC_$_INSTANCE_VARIABLES_AFQueryStringPair
+__OBJC_$_PROP_LIST_AFQueryStringPair
+__OBJC_CLASS_RO_$_AFQueryStringPair
+_OBJC_CLASSLIST_REFERENCES_$_.60
+_OBJC_SELECTOR_REFERENCES_.62
+_OBJC_SELECTOR_REFERENCES_.64
+_OBJC_CLASSLIST_REFERENCES_$_.72
+_OBJC_SELECTOR_REFERENCES_.76
+_OBJC_SELECTOR_REFERENCES_.78
+_OBJC_CLASSLIST_REFERENCES_$_.79
+_OBJC_CLASSLIST_REFERENCES_$_.86
+_OBJC_SELECTOR_REFERENCES_.88
+_OBJC_SELECTOR_REFERENCES_.92
+_OBJC_SELECTOR_REFERENCES_.96
+_OBJC_CLASSLIST_REFERENCES_$_.99
+_OBJC_CLASSLIST_REFERENCES_$_.100
+_OBJC_SELECTOR_REFERENCES_.101
+_OBJC_CLASSLIST_REFERENCES_$_.105
+_OBJC_SELECTOR_REFERENCES_.107
+_OBJC_SELECTOR_REFERENCES_.109
+_OBJC_SELECTOR_REFERENCES_.112
+_OBJC_CLASSLIST_REFERENCES_$_.113
+___block_descriptor_24_e4_20s_e14_v16?04I8^B12l
+_OBJC_SELECTOR_REFERENCES_.120
+_OBJC_CLASSLIST_REFERENCES_$_.129
+_OBJC_SELECTOR_REFERENCES_.131
+_OBJC_CLASSLIST_REFERENCES_$_.136
+_OBJC_SELECTOR_REFERENCES_.138
+_OBJC_SELECTOR_REFERENCES_.140
+_OBJC_SELECTOR_REFERENCES_.142
+_OBJC_SELECTOR_REFERENCES_.144
+_OBJC_SELECTOR_REFERENCES_.146
+_OBJC_SELECTOR_REFERENCES_.158
+_OBJC_SELECTOR_REFERENCES_.160
+_OBJC_CLASSLIST_REFERENCES_$_.161
+_OBJC_SELECTOR_REFERENCES_.163
+_OBJC_SELECTOR_REFERENCES_.165
+_OBJC_SELECTOR_REFERENCES_.167
+_AFHTTPRequestSerializerObserverContext
+_OBJC_SELECTOR_REFERENCES_.169
+_OBJC_SELECTOR_REFERENCES_.171
+_OBJC_SELECTOR_REFERENCES_.173
+_OBJC_SELECTOR_REFERENCES_.175
+_OBJC_SELECTOR_REFERENCES_.177
+_OBJC_SELECTOR_REFERENCES_.179
+_OBJC_SELECTOR_REFERENCES_.181
+_OBJC_SELECTOR_REFERENCES_.183
+_OBJC_SELECTOR_REFERENCES_.185
+_OBJC_SELECTOR_REFERENCES_.187
+_OBJC_SELECTOR_REFERENCES_.189
+_OBJC_SELECTOR_REFERENCES_.191
+_OBJC_SELECTOR_REFERENCES_.193
+_OBJC_SELECTOR_REFERENCES_.195
+___block_descriptor_28_e4_20s24r_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.198
+___block_descriptor_32_e4_20s24s28s_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.200
+___block_descriptor_32_e4_20s24s28r_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.204
+_OBJC_SELECTOR_REFERENCES_.206
+_OBJC_SELECTOR_REFERENCES_.212
+___block_descriptor_24_e4_20s_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.214
+_OBJC_SELECTOR_REFERENCES_.216
+_OBJC_CLASSLIST_REFERENCES_$_.217
+_OBJC_SELECTOR_REFERENCES_.219
+_OBJC_CLASSLIST_REFERENCES_$_.220
+_OBJC_SELECTOR_REFERENCES_.222
+_OBJC_SELECTOR_REFERENCES_.224
+_OBJC_SELECTOR_REFERENCES_.226
+_OBJC_SELECTOR_REFERENCES_.228
+_OBJC_SELECTOR_REFERENCES_.230
+_OBJC_SELECTOR_REFERENCES_.232
+_OBJC_SELECTOR_REFERENCES_.234
+_OBJC_CLASSLIST_REFERENCES_$_.235
+_OBJC_SELECTOR_REFERENCES_.237
+_OBJC_CLASSLIST_REFERENCES_$_.238
+_OBJC_SELECTOR_REFERENCES_.240
+_OBJC_SELECTOR_REFERENCES_.242
+_OBJC_SELECTOR_REFERENCES_.244
+_OBJC_SELECTOR_REFERENCES_.246
+_OBJC_SELECTOR_REFERENCES_.248
+_OBJC_CLASSLIST_REFERENCES_$_.249
+_OBJC_SELECTOR_REFERENCES_.251
+_OBJC_CLASSLIST_REFERENCES_$_.252
+_OBJC_SELECTOR_REFERENCES_.254
+_OBJC_SELECTOR_REFERENCES_.256
+_OBJC_SELECTOR_REFERENCES_.258
+_OBJC_SELECTOR_REFERENCES_.260
+_OBJC_SELECTOR_REFERENCES_.262
+_OBJC_SELECTOR_REFERENCES_.264
+_OBJC_SELECTOR_REFERENCES_.266
+_OBJC_SELECTOR_REFERENCES_.268
+_OBJC_SELECTOR_REFERENCES_.270
+___block_descriptor_28_e4_20bs24r_e5_v4?0l
+___block_descriptor_36_e4_20s24s28bs32r_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.272
+_OBJC_SELECTOR_REFERENCES_.274
+_OBJC_SELECTOR_REFERENCES_.276
+___block_descriptor_28_e4_20s24s_e14_v16?048^B12l
+_OBJC_SELECTOR_REFERENCES_.279
+_OBJC_SELECTOR_REFERENCES_.281
+_OBJC_SELECTOR_REFERENCES_.283
+_OBJC_SELECTOR_REFERENCES_.285
+_OBJC_SELECTOR_REFERENCES_.287
+_OBJC_SELECTOR_REFERENCES_.289
+_OBJC_SELECTOR_REFERENCES_.291
+_OBJC_SELECTOR_REFERENCES_.293
+_OBJC_SELECTOR_REFERENCES_.295
+_OBJC_SELECTOR_REFERENCES_.301
+_OBJC_SELECTOR_REFERENCES_.303
+_OBJC_SELECTOR_REFERENCES_.309
+_OBJC_SELECTOR_REFERENCES_.312
+_OBJC_SELECTOR_REFERENCES_.314
+_OBJC_SELECTOR_REFERENCES_.316
+_OBJC_CLASSLIST_REFERENCES_$_.317
+_OBJC_SELECTOR_REFERENCES_.319
+_OBJC_SELECTOR_REFERENCES_.321
+___block_descriptor_28_e4_20s24s_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.323
+_OBJC_SELECTOR_REFERENCES_.325
+_OBJC_SELECTOR_REFERENCES_.327
+___block_descriptor_32_e4_20s24s_e5_v4?0l
+__OBJC_$_CLASS_METHODS_AFHTTPRequestSerializer
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_NSObject
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSObject
+__OBJC_$_PROP_LIST_NSObject
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSObject
+__OBJC_PROTOCOL_$_NSObject
+__OBJC_LABEL_PROTOCOL_$_NSObject
+__OBJC_$_PROTOCOL_REFS_AFURLRequestSerialization
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_AFURLRequestSerialization
+__OBJC_$_PROTOCOL_METHOD_TYPES_AFURLRequestSerialization
+__OBJC_PROTOCOL_$_AFURLRequestSerialization
+__OBJC_LABEL_PROTOCOL_$_AFURLRequestSerialization
+__OBJC_CLASS_PROTOCOLS_$_AFHTTPRequestSerializer
+__OBJC_$_CLASS_PROP_LIST_AFHTTPRequestSerializer
+__OBJC_METACLASS_RO_$_AFHTTPRequestSerializer
+__OBJC_$_INSTANCE_METHODS_AFHTTPRequestSerializer
+_OBJC_IVAR_$_AFHTTPRequestSerializer._allowsCellularAccess
+_OBJC_IVAR_$_AFHTTPRequestSerializer._HTTPShouldHandleCookies
+_OBJC_IVAR_$_AFHTTPRequestSerializer._HTTPShouldUsePipelining
+_OBJC_IVAR_$_AFHTTPRequestSerializer._stringEncoding
+_OBJC_IVAR_$_AFHTTPRequestSerializer._cachePolicy
+_OBJC_IVAR_$_AFHTTPRequestSerializer._networkServiceType
+_OBJC_IVAR_$_AFHTTPRequestSerializer._HTTPMethodsEncodingParametersInURI
+_OBJC_IVAR_$_AFHTTPRequestSerializer._mutableObservedChangedKeyPaths
+_OBJC_IVAR_$_AFHTTPRequestSerializer._mutableHTTPRequestHeaders
+_OBJC_IVAR_$_AFHTTPRequestSerializer._requestHeaderModificationQueue
+_OBJC_IVAR_$_AFHTTPRequestSerializer._queryStringSerializationStyle
+_OBJC_IVAR_$_AFHTTPRequestSerializer._queryStringSerialization
+_OBJC_IVAR_$_AFHTTPRequestSerializer._timeoutInterval
+__OBJC_$_INSTANCE_VARIABLES_AFHTTPRequestSerializer
+__OBJC_$_PROP_LIST_AFHTTPRequestSerializer
+__OBJC_CLASS_RO_$_AFHTTPRequestSerializer
+_OBJC_SELECTOR_REFERENCES_.460
+_OBJC_SELECTOR_REFERENCES_.462
+_OBJC_CLASSLIST_REFERENCES_$_.463
+_OBJC_SELECTOR_REFERENCES_.465
+_OBJC_SELECTOR_REFERENCES_.467
+_OBJC_SELECTOR_REFERENCES_.469
+_OBJC_SELECTOR_REFERENCES_.471
+_OBJC_SELECTOR_REFERENCES_.473
+_OBJC_SELECTOR_REFERENCES_.475
+_OBJC_SELECTOR_REFERENCES_.481
+_OBJC_SELECTOR_REFERENCES_.483
+_OBJC_CLASSLIST_REFERENCES_$_.484
+_OBJC_SELECTOR_REFERENCES_.486
+_OBJC_SELECTOR_REFERENCES_.488
+_OBJC_CLASSLIST_REFERENCES_$_.491
+_OBJC_SELECTOR_REFERENCES_.493
+_OBJC_SELECTOR_REFERENCES_.495
+_OBJC_SELECTOR_REFERENCES_.497
+_OBJC_CLASSLIST_REFERENCES_$_.502
+_OBJC_SELECTOR_REFERENCES_.504
+_OBJC_SELECTOR_REFERENCES_.506
+_OBJC_SELECTOR_REFERENCES_.508
+_OBJC_SELECTOR_REFERENCES_.510
+_OBJC_SELECTOR_REFERENCES_.512
+_OBJC_SELECTOR_REFERENCES_.514
+_OBJC_SELECTOR_REFERENCES_.516
+_OBJC_SELECTOR_REFERENCES_.518
+_OBJC_SELECTOR_REFERENCES_.522
+_OBJC_SELECTOR_REFERENCES_.524
+_OBJC_SELECTOR_REFERENCES_.526
+_OBJC_SELECTOR_REFERENCES_.528
+_OBJC_SELECTOR_REFERENCES_.530
+_OBJC_SELECTOR_REFERENCES_.536
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_AFMultipartFormData
+__OBJC_$_PROTOCOL_METHOD_TYPES_AFMultipartFormData
+__OBJC_PROTOCOL_$_AFMultipartFormData
+__OBJC_LABEL_PROTOCOL_$_AFMultipartFormData
+__OBJC_CLASS_PROTOCOLS_$_AFStreamingMultipartFormData
+__OBJC_METACLASS_RO_$_AFStreamingMultipartFormData
+__OBJC_$_INSTANCE_METHODS_AFStreamingMultipartFormData
+_OBJC_IVAR_$_AFStreamingMultipartFormData._request
+_OBJC_IVAR_$_AFStreamingMultipartFormData._stringEncoding
+_OBJC_IVAR_$_AFStreamingMultipartFormData._boundary
+_OBJC_IVAR_$_AFStreamingMultipartFormData._bodyStream
+__OBJC_$_INSTANCE_VARIABLES_AFStreamingMultipartFormData
+__OBJC_$_PROP_LIST_AFStreamingMultipartFormData
+__OBJC_CLASS_RO_$_AFStreamingMultipartFormData
+_OBJC_SELECTOR_REFERENCES_.572
+_OBJC_SELECTOR_REFERENCES_.574
+_OBJC_SELECTOR_REFERENCES_.576
+_OBJC_SELECTOR_REFERENCES_.578
+_OBJC_SELECTOR_REFERENCES_.580
+_OBJC_SELECTOR_REFERENCES_.582
+_OBJC_SELECTOR_REFERENCES_.584
+_OBJC_SELECTOR_REFERENCES_.586
+_OBJC_SELECTOR_REFERENCES_.588
+_OBJC_SELECTOR_REFERENCES_.590
+_OBJC_SELECTOR_REFERENCES_.592
+_OBJC_SELECTOR_REFERENCES_.594
+_OBJC_SELECTOR_REFERENCES_.596
+_OBJC_SELECTOR_REFERENCES_.598
+_OBJC_SELECTOR_REFERENCES_.600
+_OBJC_SELECTOR_REFERENCES_.602
+_OBJC_CLASSLIST_REFERENCES_$_.603
+_OBJC_SELECTOR_REFERENCES_.605
+_OBJC_SELECTOR_REFERENCES_.607
+_OBJC_SELECTOR_REFERENCES_.609
+_OBJC_SELECTOR_REFERENCES_.611
+_OBJC_SELECTOR_REFERENCES_.613
+_OBJC_IVAR_$_AFMultipartBodyStream.delegate
+_OBJC_IVAR_$_AFMultipartBodyStream.streamStatus
+_OBJC_IVAR_$_AFMultipartBodyStream.streamError
+_OBJC_IVAR_$_AFMultipartBodyStream._numberOfBytesInPacket
+_OBJC_IVAR_$_AFMultipartBodyStream._delay
+_OBJC_IVAR_$_AFMultipartBodyStream._inputStream
+_OBJC_IVAR_$_AFMultipartBodyStream._stringEncoding
+_OBJC_IVAR_$_AFMultipartBodyStream._HTTPBodyParts
+_OBJC_IVAR_$_AFMultipartBodyStream._HTTPBodyPartEnumerator
+_OBJC_IVAR_$_AFMultipartBodyStream._currentHTTPBodyPart
+_OBJC_IVAR_$_AFMultipartBodyStream._outputStream
+_OBJC_IVAR_$_AFMultipartBodyStream._buffer
+__OBJC_$_PROTOCOL_REFS_NSStreamDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSStreamDelegate
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSStreamDelegate
+__OBJC_PROTOCOL_$_NSStreamDelegate
+__OBJC_LABEL_PROTOCOL_$_NSStreamDelegate
+__OBJC_CLASS_PROTOCOLS_$_AFMultipartBodyStream
+__OBJC_METACLASS_RO_$_AFMultipartBodyStream
+__OBJC_$_INSTANCE_METHODS_AFMultipartBodyStream
+__OBJC_$_INSTANCE_VARIABLES_AFMultipartBodyStream
+__OBJC_$_PROP_LIST_AFMultipartBodyStream
+__OBJC_CLASS_RO_$_AFMultipartBodyStream
+_OBJC_SELECTOR_REFERENCES_.679
+_OBJC_SELECTOR_REFERENCES_.681
+_OBJC_CLASSLIST_REFERENCES_$_.682
+_OBJC_SELECTOR_REFERENCES_.684
+_OBJC_SELECTOR_REFERENCES_.686
+_OBJC_CLASSLIST_REFERENCES_$_.687
+_OBJC_SELECTOR_REFERENCES_.689
+_OBJC_SELECTOR_REFERENCES_.691
+_OBJC_SELECTOR_REFERENCES_.695
+_OBJC_SELECTOR_REFERENCES_.697
+_OBJC_SELECTOR_REFERENCES_.699
+_OBJC_SELECTOR_REFERENCES_.701
+_OBJC_SELECTOR_REFERENCES_.703
+_OBJC_SELECTOR_REFERENCES_.705
+_OBJC_SELECTOR_REFERENCES_.707
+_OBJC_SELECTOR_REFERENCES_.709
+_OBJC_SELECTOR_REFERENCES_.711
+__OBJC_CLASS_PROTOCOLS_$_AFHTTPBodyPart
+__OBJC_METACLASS_RO_$_AFHTTPBodyPart
+__OBJC_$_INSTANCE_METHODS_AFHTTPBodyPart
+_OBJC_IVAR_$_AFHTTPBodyPart._phase
+_OBJC_IVAR_$_AFHTTPBodyPart._inputStream
+_OBJC_IVAR_$_AFHTTPBodyPart._phaseReadOffset
+_OBJC_IVAR_$_AFHTTPBodyPart._hasInitialBoundary
+_OBJC_IVAR_$_AFHTTPBodyPart._hasFinalBoundary
+_OBJC_IVAR_$_AFHTTPBodyPart._stringEncoding
+_OBJC_IVAR_$_AFHTTPBodyPart._headers
+_OBJC_IVAR_$_AFHTTPBodyPart._boundary
+_OBJC_IVAR_$_AFHTTPBodyPart._body
+_OBJC_IVAR_$_AFHTTPBodyPart._bodyContentLength
+__OBJC_$_INSTANCE_VARIABLES_AFHTTPBodyPart
+__OBJC_$_PROP_LIST_AFHTTPBodyPart
+__OBJC_CLASS_RO_$_AFHTTPBodyPart
+_OBJC_SELECTOR_REFERENCES_.739
+_OBJC_SELECTOR_REFERENCES_.741
+_OBJC_CLASSLIST_REFERENCES_$_.745
+_OBJC_SELECTOR_REFERENCES_.747
+_OBJC_SELECTOR_REFERENCES_.751
+_OBJC_SELECTOR_REFERENCES_.753
+_OBJC_SELECTOR_REFERENCES_.754
+_OBJC_SELECTOR_REFERENCES_.755
+_OBJC_SELECTOR_REFERENCES_.756
+_OBJC_IVAR_$_AFJSONRequestSerializer._writingOptions
+__OBJC_$_CLASS_METHODS_AFJSONRequestSerializer
+__OBJC_METACLASS_RO_$_AFJSONRequestSerializer
+__OBJC_$_INSTANCE_METHODS_AFJSONRequestSerializer
+__OBJC_$_INSTANCE_VARIABLES_AFJSONRequestSerializer
+__OBJC_$_PROP_LIST_AFJSONRequestSerializer
+__OBJC_CLASS_RO_$_AFJSONRequestSerializer
+_OBJC_SELECTOR_REFERENCES_.762
+_OBJC_SELECTOR_REFERENCES_.764
+_OBJC_SELECTOR_REFERENCES_.766
+_OBJC_CLASSLIST_REFERENCES_$_.770
+_OBJC_SELECTOR_REFERENCES_.772
+_OBJC_SELECTOR_REFERENCES_.774
+_OBJC_SELECTOR_REFERENCES_.776
+_OBJC_IVAR_$_AFPropertyListRequestSerializer._format
+_OBJC_IVAR_$_AFPropertyListRequestSerializer._writeOptions
+__OBJC_$_CLASS_METHODS_AFPropertyListRequestSerializer
+__OBJC_METACLASS_RO_$_AFPropertyListRequestSerializer
+__OBJC_$_INSTANCE_METHODS_AFPropertyListRequestSerializer
+__OBJC_$_INSTANCE_VARIABLES_AFPropertyListRequestSerializer
+__OBJC_$_PROP_LIST_AFPropertyListRequestSerializer
+__OBJC_CLASS_RO_$_AFPropertyListRequestSerializer
+_AFHTTPRequestSerializerObservedKeyPaths._AFHTTPRequestSerializerObservedKeyPaths
+_AFHTTPRequestSerializerObservedKeyPaths.onceToken
+___block_descriptor_20_e5_v4?0l
+___block_literal_global
+/Users/ws/Documents/MyLib/cocoapods-project-gen/spec/cocoapods/Resources/output/project_gen/App/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m
+__AFHTTPRequestSerializerObservedKeyPaths_block_invoke
+AFNetworking/AFNetworking/AFURLRequestSerialization.m
+AFHTTPRequestSerializerObservedKeyPaths
+/Applications/Xcode.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/usr/include/dispatch/once.h
+AFNetworking/AFNetworking/AFURLRequestSerialization.h
+__84-[AFPropertyListRequestSerializer requestBySerializingRequest:withParameters:error:]_block_invoke
+__76-[AFJSONRequestSerializer requestBySerializingRequest:withParameters:error:]_block_invoke
+__39-[AFHTTPBodyPart transitionToNextPhase]_block_invoke
+NSMakeRange
+/Applications/Xcode.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+AFMultipartFormFinalBoundary
+AFMultipartFormEncapsulationBoundary
+AFMultipartFormInitialBoundary
+AFContentTypeForPathExtension
+AFCreateMultipartFormBoundary
+__40-[AFHTTPRequestSerializer copyWithZone:]_block_invoke
+__43-[AFHTTPRequestSerializer encodeWithCoder:]_block_invoke
+__copy_helper_block_e4_20s24s
+__76-[AFHTTPRequestSerializer requestBySerializingRequest:withParameters:error:]_block_invoke
+__destroy_helper_block_e4_20s24s28s32r
+__copy_helper_block_e4_20s24s28b32r
+__copy_helper_block_e4_20b24r
+__105-[AFHTTPRequestSerializer requestWithMultipartFormRequest:writingStreamContentsToFile:completionHandler:]_block_invoke_2
+__105-[AFHTTPRequestSerializer requestWithMultipartFormRequest:writingStreamContentsToFile:completionHandler:]_block_invoke
+AFQueryStringPairsFromDictionary
+__51-[AFHTTPRequestSerializer clearAuthorizationHeader]_block_invoke
+__copy_helper_block_e4_20s24s28r
+__51-[AFHTTPRequestSerializer valueForHTTPHeaderField:]_block_invoke
+__destroy_helper_block_e4_20s24s28s
+__copy_helper_block_e4_20s24s28s
+__55-[AFHTTPRequestSerializer setValue:forHTTPHeaderField:]_block_invoke
+__destroy_helper_block_e4_20s24r
+__copy_helper_block_e4_20s24r
+__45-[AFHTTPRequestSerializer HTTPRequestHeaders]_block_invoke
+__copy_helper_block_e4_20s
+__31-[AFHTTPRequestSerializer init]_block_invoke
+AFQueryStringPairsFromKeyAndValue
+AFQueryStringFromParameters
+AFPercentEscapedStringFromString
++[AFHTTPResponseSerializer serializer]
+-[AFHTTPResponseSerializer init]
+-[AFHTTPResponseSerializer validateResponse:data:error:]
+_AFErrorWithUnderlyingError
+-[AFHTTPResponseSerializer responseObjectForResponse:data:error:]
++[AFHTTPResponseSerializer supportsSecureCoding]
+-[AFHTTPResponseSerializer initWithCoder:]
+-[AFHTTPResponseSerializer encodeWithCoder:]
+-[AFHTTPResponseSerializer copyWithZone:]
+-[AFHTTPResponseSerializer acceptableStatusCodes]
+-[AFHTTPResponseSerializer setAcceptableStatusCodes:]
+-[AFHTTPResponseSerializer acceptableContentTypes]
+-[AFHTTPResponseSerializer setAcceptableContentTypes:]
+-[AFHTTPResponseSerializer .cxx_destruct]
++[AFJSONResponseSerializer serializer]
++[AFJSONResponseSerializer serializerWithReadingOptions:]
+-[AFJSONResponseSerializer init]
+-[AFJSONResponseSerializer responseObjectForResponse:data:error:]
+_AFErrorOrUnderlyingErrorHasCodeInDomain
++[AFJSONResponseSerializer supportsSecureCoding]
+-[AFJSONResponseSerializer initWithCoder:]
+-[AFJSONResponseSerializer encodeWithCoder:]
+-[AFJSONResponseSerializer copyWithZone:]
+-[AFJSONResponseSerializer readingOptions]
+-[AFJSONResponseSerializer setReadingOptions:]
+-[AFJSONResponseSerializer removesKeysWithNullValues]
+-[AFJSONResponseSerializer setRemovesKeysWithNullValues:]
++[AFXMLParserResponseSerializer serializer]
+-[AFXMLParserResponseSerializer init]
+-[AFXMLParserResponseSerializer responseObjectForResponse:data:error:]
++[AFPropertyListResponseSerializer serializer]
++[AFPropertyListResponseSerializer serializerWithFormat:readOptions:]
+-[AFPropertyListResponseSerializer init]
+-[AFPropertyListResponseSerializer responseObjectForResponse:data:error:]
++[AFPropertyListResponseSerializer supportsSecureCoding]
+-[AFPropertyListResponseSerializer initWithCoder:]
+-[AFPropertyListResponseSerializer encodeWithCoder:]
+-[AFPropertyListResponseSerializer copyWithZone:]
+-[AFPropertyListResponseSerializer format]
+-[AFPropertyListResponseSerializer setFormat:]
+-[AFPropertyListResponseSerializer readOptions]
+-[AFPropertyListResponseSerializer setReadOptions:]
++[UIImage(AFNetworkingSafeImageLoading) af_safeImageWithData:]
+___62+[UIImage(AFNetworkingSafeImageLoading) af_safeImageWithData:]_block_invoke
+-[AFImageResponseSerializer init]
+-[AFImageResponseSerializer responseObjectForResponse:data:error:]
+_AFImageWithDataAtScale
++[AFImageResponseSerializer supportsSecureCoding]
+-[AFImageResponseSerializer initWithCoder:]
+-[AFImageResponseSerializer encodeWithCoder:]
+-[AFImageResponseSerializer copyWithZone:]
+-[AFImageResponseSerializer imageScale]
+-[AFImageResponseSerializer setImageScale:]
+-[AFImageResponseSerializer automaticallyInflatesResponseImage]
+-[AFImageResponseSerializer setAutomaticallyInflatesResponseImage:]
++[AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:]
+-[AFCompoundResponseSerializer responseObjectForResponse:data:error:]
++[AFCompoundResponseSerializer supportsSecureCoding]
+-[AFCompoundResponseSerializer initWithCoder:]
+-[AFCompoundResponseSerializer encodeWithCoder:]
+-[AFCompoundResponseSerializer copyWithZone:]
+-[AFCompoundResponseSerializer responseSerializers]
+-[AFCompoundResponseSerializer setResponseSerializers:]
+-[AFCompoundResponseSerializer .cxx_destruct]
+_OBJC_CLASSLIST_REFERENCES_$_.7
+_OBJC_SELECTOR_REFERENCES_.9
+_OBJC_CLASSLIST_REFERENCES_$_.23
+_OBJC_CLASSLIST_REFERENCES_$_.24
+_OBJC_SELECTOR_REFERENCES_.34
+_OBJC_SELECTOR_REFERENCES_.36
+_OBJC_CLASSLIST_REFERENCES_$_.37
+_OBJC_SELECTOR_REFERENCES_.43
+_OBJC_SELECTOR_REFERENCES_.54
+_OBJC_CLASSLIST_REFERENCES_$_.55
+_OBJC_CLASSLIST_REFERENCES_$_.56
+_OBJC_SELECTOR_REFERENCES_.58
+_OBJC_SELECTOR_REFERENCES_.66
+_OBJC_SELECTOR_REFERENCES_.68
+_OBJC_SELECTOR_REFERENCES_.72
+_OBJC_CLASSLIST_REFERENCES_$_.73
+_OBJC_SELECTOR_REFERENCES_.87
+_OBJC_SELECTOR_REFERENCES_.89
+_OBJC_CLASSLIST_REFERENCES_$_.90
+_OBJC_SELECTOR_REFERENCES_.94
+__OBJC_$_CLASS_METHODS_AFHTTPResponseSerializer
+__OBJC_$_PROTOCOL_REFS_AFURLResponseSerialization
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_AFURLResponseSerialization
+__OBJC_$_PROTOCOL_METHOD_TYPES_AFURLResponseSerialization
+__OBJC_PROTOCOL_$_AFURLResponseSerialization
+__OBJC_LABEL_PROTOCOL_$_AFURLResponseSerialization
+__OBJC_CLASS_PROTOCOLS_$_AFHTTPResponseSerializer
+__OBJC_$_CLASS_PROP_LIST_AFHTTPResponseSerializer
+__OBJC_METACLASS_RO_$_AFHTTPResponseSerializer
+__OBJC_$_INSTANCE_METHODS_AFHTTPResponseSerializer
+_OBJC_IVAR_$_AFHTTPResponseSerializer._acceptableStatusCodes
+_OBJC_IVAR_$_AFHTTPResponseSerializer._acceptableContentTypes
+__OBJC_$_INSTANCE_VARIABLES_AFHTTPResponseSerializer
+__OBJC_$_PROP_LIST_AFHTTPResponseSerializer
+__OBJC_CLASS_RO_$_AFHTTPResponseSerializer
+_OBJC_SELECTOR_REFERENCES_.176
+_OBJC_CLASSLIST_REFERENCES_$_.177
+_OBJC_SELECTOR_REFERENCES_.180
+_OBJC_SELECTOR_REFERENCES_.182
+_OBJC_CLASSLIST_REFERENCES_$_.183
+_OBJC_SELECTOR_REFERENCES_.190
+_OBJC_CLASSLIST_REFERENCES_$_.191
+_OBJC_SELECTOR_REFERENCES_.197
+_OBJC_SELECTOR_REFERENCES_.202
+_OBJC_IVAR_$_AFJSONResponseSerializer._readingOptions
+_OBJC_IVAR_$_AFJSONResponseSerializer._removesKeysWithNullValues
+__OBJC_$_CLASS_METHODS_AFJSONResponseSerializer
+__OBJC_METACLASS_RO_$_AFJSONResponseSerializer
+__OBJC_$_INSTANCE_METHODS_AFJSONResponseSerializer
+__OBJC_$_INSTANCE_VARIABLES_AFJSONResponseSerializer
+__OBJC_$_PROP_LIST_AFJSONResponseSerializer
+__OBJC_CLASS_RO_$_AFJSONResponseSerializer
+_OBJC_SELECTOR_REFERENCES_.221
+_OBJC_CLASSLIST_REFERENCES_$_.222
+__OBJC_$_CLASS_METHODS_AFXMLParserResponseSerializer
+__OBJC_METACLASS_RO_$_AFXMLParserResponseSerializer
+__OBJC_$_INSTANCE_METHODS_AFXMLParserResponseSerializer
+__OBJC_CLASS_RO_$_AFXMLParserResponseSerializer
+_OBJC_SELECTOR_REFERENCES_.227
+_OBJC_SELECTOR_REFERENCES_.229
+_OBJC_SELECTOR_REFERENCES_.231
+_OBJC_SELECTOR_REFERENCES_.239
+_OBJC_SELECTOR_REFERENCES_.241
+_OBJC_IVAR_$_AFPropertyListResponseSerializer._format
+_OBJC_IVAR_$_AFPropertyListResponseSerializer._readOptions
+__OBJC_$_CLASS_METHODS_AFPropertyListResponseSerializer
+__OBJC_METACLASS_RO_$_AFPropertyListResponseSerializer
+__OBJC_$_INSTANCE_METHODS_AFPropertyListResponseSerializer
+__OBJC_$_INSTANCE_VARIABLES_AFPropertyListResponseSerializer
+__OBJC_$_PROP_LIST_AFPropertyListResponseSerializer
+__OBJC_CLASS_RO_$_AFPropertyListResponseSerializer
+_imageLock
+_af_safeImageWithData:.onceToken
+_OBJC_CLASSLIST_REFERENCES_$_.251
+_OBJC_SELECTOR_REFERENCES_.253
+_OBJC_CLASSLIST_REFERENCES_$_.254
+__OBJC_$_CATEGORY_CLASS_METHODS_UIImage_$_AFNetworkingSafeImageLoading
+__OBJC_$_CATEGORY_UIImage_$_AFNetworkingSafeImageLoading
+_OBJC_CLASSLIST_REFERENCES_$_.282
+_OBJC_SELECTOR_REFERENCES_.284
+_OBJC_SELECTOR_REFERENCES_.286
+_OBJC_SELECTOR_REFERENCES_.288
+_OBJC_SELECTOR_REFERENCES_.290
+_OBJC_SELECTOR_REFERENCES_.292
+_OBJC_SELECTOR_REFERENCES_.294
+_OBJC_SELECTOR_REFERENCES_.296
+_OBJC_SELECTOR_REFERENCES_.298
+_OBJC_SELECTOR_REFERENCES_.300
+_OBJC_SELECTOR_REFERENCES_.302
+_OBJC_IVAR_$_AFImageResponseSerializer._imageScale
+_OBJC_IVAR_$_AFImageResponseSerializer._automaticallyInflatesResponseImage
+__OBJC_$_CLASS_METHODS_AFImageResponseSerializer
+__OBJC_METACLASS_RO_$_AFImageResponseSerializer
+__OBJC_$_INSTANCE_METHODS_AFImageResponseSerializer
+__OBJC_$_INSTANCE_VARIABLES_AFImageResponseSerializer
+__OBJC_$_PROP_LIST_AFImageResponseSerializer
+__OBJC_CLASS_RO_$_AFImageResponseSerializer
+_OBJC_SELECTOR_REFERENCES_.318
+_OBJC_IVAR_$_AFCompoundResponseSerializer._responseSerializers
+__OBJC_$_CLASS_METHODS_AFCompoundResponseSerializer
+__OBJC_METACLASS_RO_$_AFCompoundResponseSerializer
+__OBJC_$_INSTANCE_METHODS_AFCompoundResponseSerializer
+__OBJC_$_INSTANCE_VARIABLES_AFCompoundResponseSerializer
+__OBJC_$_PROP_LIST_AFCompoundResponseSerializer
+__OBJC_CLASS_RO_$_AFCompoundResponseSerializer
+_OBJC_SELECTOR_REFERENCES_.334
+_OBJC_SELECTOR_REFERENCES_.336
+_OBJC_SELECTOR_REFERENCES_.338
+_OBJC_SELECTOR_REFERENCES_.340
+_OBJC_SELECTOR_REFERENCES_.342
+_OBJC_SELECTOR_REFERENCES_.344
+_OBJC_SELECTOR_REFERENCES_.346
+_OBJC_SELECTOR_REFERENCES_.348
+_OBJC_SELECTOR_REFERENCES_.350
+_OBJC_SELECTOR_REFERENCES_.351
+/Users/ws/Documents/MyLib/cocoapods-project-gen/spec/cocoapods/Resources/output/project_gen/App/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.m
+AFNetworking/AFNetworking/AFURLResponseSerialization.m
+AFNetworking/AFNetworking/AFURLResponseSerialization.h
+AFImageWithDataAtScale
+AFInflatedImageFromResponseWithDataAtScale
+__62+[UIImage(AFNetworkingSafeImageLoading) af_safeImageWithData:]_block_invoke
+AFErrorOrUnderlyingErrorHasCodeInDomain
+AFErrorWithUnderlyingError
+AFJSONObjectByRemovingKeysWithNullValues
+-[AFURLSessionManagerTaskDelegate initWithTask:]
+___48-[AFURLSessionManagerTaskDelegate initWithTask:]_block_invoke
+___copy_helper_block_e4_20w
+___destroy_helper_block_e4_20w
+___48-[AFURLSessionManagerTaskDelegate initWithTask:]_block_invoke.46
+___48-[AFURLSessionManagerTaskDelegate initWithTask:]_block_invoke_2
+-[AFURLSessionManagerTaskDelegate dealloc]
+-[AFURLSessionManagerTaskDelegate observeValueForKeyPath:ofObject:change:context:]
+-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]
+___72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke
+___72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke_2
+___copy_helper_block_e4_20s24s28s32s36r
+___destroy_helper_block_e4_20s24s28s32s36r
+___72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke.105
+___72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke_2.108
+___72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke_3
+___copy_helper_block_e4_20s24s28s32s36s40r
+___destroy_helper_block_e4_20s24s28s32s36s40r
+-[AFURLSessionManagerTaskDelegate URLSession:task:didFinishCollectingMetrics:]
+-[AFURLSessionManagerTaskDelegate URLSession:dataTask:didReceiveData:]
+-[AFURLSessionManagerTaskDelegate URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:]
+-[AFURLSessionManagerTaskDelegate URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:]
+-[AFURLSessionManagerTaskDelegate URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:]
+-[AFURLSessionManagerTaskDelegate URLSession:downloadTask:didFinishDownloadingToURL:]
+-[AFURLSessionManagerTaskDelegate manager]
+-[AFURLSessionManagerTaskDelegate setManager:]
+-[AFURLSessionManagerTaskDelegate mutableData]
+-[AFURLSessionManagerTaskDelegate setMutableData:]
+-[AFURLSessionManagerTaskDelegate uploadProgress]
+-[AFURLSessionManagerTaskDelegate setUploadProgress:]
+-[AFURLSessionManagerTaskDelegate downloadProgress]
+-[AFURLSessionManagerTaskDelegate setDownloadProgress:]
+-[AFURLSessionManagerTaskDelegate downloadFileURL]
+-[AFURLSessionManagerTaskDelegate setDownloadFileURL:]
+-[AFURLSessionManagerTaskDelegate sessionTaskMetrics]
+-[AFURLSessionManagerTaskDelegate setSessionTaskMetrics:]
+-[AFURLSessionManagerTaskDelegate downloadTaskDidFinishDownloading]
+-[AFURLSessionManagerTaskDelegate setDownloadTaskDidFinishDownloading:]
+-[AFURLSessionManagerTaskDelegate uploadProgressBlock]
+-[AFURLSessionManagerTaskDelegate setUploadProgressBlock:]
+-[AFURLSessionManagerTaskDelegate downloadProgressBlock]
+-[AFURLSessionManagerTaskDelegate setDownloadProgressBlock:]
+-[AFURLSessionManagerTaskDelegate completionHandler]
+-[AFURLSessionManagerTaskDelegate setCompletionHandler:]
+-[AFURLSessionManagerTaskDelegate .cxx_destruct]
++[_AFURLSessionTaskSwizzling load]
++[_AFURLSessionTaskSwizzling swizzleResumeAndSuspendMethodForClass:]
+-[_AFURLSessionTaskSwizzling state]
+-[_AFURLSessionTaskSwizzling af_resume]
+-[_AFURLSessionTaskSwizzling af_suspend]
+-[AFURLSessionManager init]
+-[AFURLSessionManager initWithSessionConfiguration:]
+___52-[AFURLSessionManager initWithSessionConfiguration:]_block_invoke
+-[AFURLSessionManager dealloc]
+-[AFURLSessionManager session]
+-[AFURLSessionManager taskDescriptionForSessionTasks]
+-[AFURLSessionManager taskDidResume:]
+___37-[AFURLSessionManager taskDidResume:]_block_invoke
+-[AFURLSessionManager taskDidSuspend:]
+___38-[AFURLSessionManager taskDidSuspend:]_block_invoke
+-[AFURLSessionManager delegateForTask:]
+-[AFURLSessionManager setDelegate:forTask:]
+-[AFURLSessionManager addDelegateForDataTask:uploadProgress:downloadProgress:completionHandler:]
+-[AFURLSessionManager addDelegateForUploadTask:progress:completionHandler:]
+-[AFURLSessionManager addDelegateForDownloadTask:progress:destination:completionHandler:]
+___89-[AFURLSessionManager addDelegateForDownloadTask:progress:destination:completionHandler:]_block_invoke
+-[AFURLSessionManager removeDelegateForTask:]
+-[AFURLSessionManager tasksForKeyPath:]
+___39-[AFURLSessionManager tasksForKeyPath:]_block_invoke
+-[AFURLSessionManager tasks]
+-[AFURLSessionManager dataTasks]
+-[AFURLSessionManager uploadTasks]
+-[AFURLSessionManager downloadTasks]
+-[AFURLSessionManager invalidateSessionCancelingTasks:resetSession:]
+-[AFURLSessionManager setResponseSerializer:]
+-[AFURLSessionManager addNotificationObserverForTask:]
+-[AFURLSessionManager removeNotificationObserverForTask:]
+-[AFURLSessionManager dataTaskWithRequest:uploadProgress:downloadProgress:completionHandler:]
+-[AFURLSessionManager uploadTaskWithRequest:fromFile:progress:completionHandler:]
+-[AFURLSessionManager uploadTaskWithRequest:fromData:progress:completionHandler:]
+-[AFURLSessionManager uploadTaskWithStreamedRequest:progress:completionHandler:]
+-[AFURLSessionManager downloadTaskWithRequest:progress:destination:completionHandler:]
+-[AFURLSessionManager downloadTaskWithResumeData:progress:destination:completionHandler:]
+-[AFURLSessionManager uploadProgressForTask:]
+-[AFURLSessionManager downloadProgressForTask:]
+-[AFURLSessionManager setSessionDidBecomeInvalidBlock:]
+-[AFURLSessionManager setSessionDidReceiveAuthenticationChallengeBlock:]
+-[AFURLSessionManager setDidFinishEventsForBackgroundURLSessionBlock:]
+-[AFURLSessionManager setTaskNeedNewBodyStreamBlock:]
+-[AFURLSessionManager setTaskWillPerformHTTPRedirectionBlock:]
+-[AFURLSessionManager setTaskDidSendBodyDataBlock:]
+-[AFURLSessionManager setTaskDidCompleteBlock:]
+-[AFURLSessionManager setTaskDidFinishCollectingMetricsBlock:]
+-[AFURLSessionManager setDataTaskDidReceiveResponseBlock:]
+-[AFURLSessionManager setDataTaskDidBecomeDownloadTaskBlock:]
+-[AFURLSessionManager setDataTaskDidReceiveDataBlock:]
+-[AFURLSessionManager setDataTaskWillCacheResponseBlock:]
+-[AFURLSessionManager setDownloadTaskDidFinishDownloadingBlock:]
+-[AFURLSessionManager setDownloadTaskDidWriteDataBlock:]
+-[AFURLSessionManager setDownloadTaskDidResumeBlock:]
+-[AFURLSessionManager description]
+-[AFURLSessionManager respondsToSelector:]
+-[AFURLSessionManager URLSession:didBecomeInvalidWithError:]
+-[AFURLSessionManager URLSession:didReceiveChallenge:completionHandler:]
+-[AFURLSessionManager URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:]
+-[AFURLSessionManager URLSession:task:didReceiveChallenge:completionHandler:]
+-[AFURLSessionManager serverTrustErrorForServerTrust:url:]
+-[AFURLSessionManager URLSession:task:needNewBodyStream:]
+-[AFURLSessionManager URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:]
+-[AFURLSessionManager URLSession:task:didCompleteWithError:]
+-[AFURLSessionManager URLSession:task:didFinishCollectingMetrics:]
+-[AFURLSessionManager URLSession:dataTask:didReceiveResponse:completionHandler:]
+-[AFURLSessionManager URLSession:dataTask:didBecomeDownloadTask:]
+-[AFURLSessionManager URLSession:dataTask:didReceiveData:]
+-[AFURLSessionManager URLSession:dataTask:willCacheResponse:completionHandler:]
+-[AFURLSessionManager URLSessionDidFinishEventsForBackgroundURLSession:]
+___72-[AFURLSessionManager URLSessionDidFinishEventsForBackgroundURLSession:]_block_invoke
+-[AFURLSessionManager URLSession:downloadTask:didFinishDownloadingToURL:]
+-[AFURLSessionManager URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:]
+-[AFURLSessionManager URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:]
++[AFURLSessionManager supportsSecureCoding]
+-[AFURLSessionManager initWithCoder:]
+-[AFURLSessionManager encodeWithCoder:]
+-[AFURLSessionManager copyWithZone:]
+-[AFURLSessionManager operationQueue]
+-[AFURLSessionManager setOperationQueue:]
+-[AFURLSessionManager responseSerializer]
+-[AFURLSessionManager securityPolicy]
+-[AFURLSessionManager setSecurityPolicy:]
+-[AFURLSessionManager completionQueue]
+-[AFURLSessionManager setCompletionQueue:]
+-[AFURLSessionManager completionGroup]
+-[AFURLSessionManager setCompletionGroup:]
+-[AFURLSessionManager sessionConfiguration]
+-[AFURLSessionManager setSessionConfiguration:]
+-[AFURLSessionManager setSession:]
+-[AFURLSessionManager mutableTaskDelegatesKeyedByTaskIdentifier]
+-[AFURLSessionManager setMutableTaskDelegatesKeyedByTaskIdentifier:]
+-[AFURLSessionManager lock]
+-[AFURLSessionManager setLock:]
+-[AFURLSessionManager sessionDidBecomeInvalid]
+-[AFURLSessionManager setSessionDidBecomeInvalid:]
+-[AFURLSessionManager sessionDidReceiveAuthenticationChallenge]
+-[AFURLSessionManager setSessionDidReceiveAuthenticationChallenge:]
+-[AFURLSessionManager didFinishEventsForBackgroundURLSession]
+-[AFURLSessionManager setDidFinishEventsForBackgroundURLSession:]
+-[AFURLSessionManager taskWillPerformHTTPRedirection]
+-[AFURLSessionManager setTaskWillPerformHTTPRedirection:]
+-[AFURLSessionManager authenticationChallengeHandler]
+-[AFURLSessionManager setAuthenticationChallengeHandler:]
+-[AFURLSessionManager taskNeedNewBodyStream]
+-[AFURLSessionManager setTaskNeedNewBodyStream:]
+-[AFURLSessionManager taskDidSendBodyData]
+-[AFURLSessionManager setTaskDidSendBodyData:]
+-[AFURLSessionManager taskDidComplete]
+-[AFURLSessionManager setTaskDidComplete:]
+-[AFURLSessionManager taskDidFinishCollectingMetrics]
+-[AFURLSessionManager setTaskDidFinishCollectingMetrics:]
+-[AFURLSessionManager dataTaskDidReceiveResponse]
+-[AFURLSessionManager setDataTaskDidReceiveResponse:]
+-[AFURLSessionManager dataTaskDidBecomeDownloadTask]
+-[AFURLSessionManager setDataTaskDidBecomeDownloadTask:]
+-[AFURLSessionManager dataTaskDidReceiveData]
+-[AFURLSessionManager setDataTaskDidReceiveData:]
+-[AFURLSessionManager dataTaskWillCacheResponse]
+-[AFURLSessionManager setDataTaskWillCacheResponse:]
+-[AFURLSessionManager downloadTaskDidFinishDownloading]
+-[AFURLSessionManager setDownloadTaskDidFinishDownloading:]
+-[AFURLSessionManager downloadTaskDidWriteData]
+-[AFURLSessionManager setDownloadTaskDidWriteData:]
+-[AFURLSessionManager downloadTaskDidResume]
+-[AFURLSessionManager setDownloadTaskDidResume:]
+-[AFURLSessionManager .cxx_destruct]
+_url_session_manager_completion_group
+___url_session_manager_completion_group_block_invoke
+___url_session_manager_processing_queue_block_invoke
+___clang_at_available_requires_core_foundation_framework
+_OBJC_CLASSLIST_REFERENCES_$_.27
+_OBJC_CLASSLIST_REFERENCES_$_.30
+_OBJC_SELECTOR_REFERENCES_.38
+_OBJC_SELECTOR_REFERENCES_.40
+___block_descriptor_24_e4_20w_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.45
+_OBJC_SELECTOR_REFERENCES_.60
+_AuthenticationChallengeErrorKey
+_OBJC_SELECTOR_REFERENCES_.74
+_OBJC_CLASSLIST_REFERENCES_$_.75
+_OBJC_SELECTOR_REFERENCES_.91
+_OBJC_SELECTOR_REFERENCES_.93
+_OBJC_SELECTOR_REFERENCES_.95
+_OBJC_SELECTOR_REFERENCES_.97
+_OBJC_SELECTOR_REFERENCES_.99
+_OBJC_SELECTOR_REFERENCES_.102
+___block_descriptor_40_e4_20s24s28s32s36r_e5_v4?0l
+___block_descriptor_44_e4_20s24s28s32s36s40r_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.110
+_OBJC_SELECTOR_REFERENCES_.114
+_OBJC_SELECTOR_REFERENCES_.116
+_OBJC_SELECTOR_REFERENCES_.122
+_OBJC_SELECTOR_REFERENCES_.124
+_OBJC_CLASSLIST_REFERENCES_$_.127
+_OBJC_SELECTOR_REFERENCES_.129
+__OBJC_$_PROTOCOL_REFS_NSURLSessionDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSURLSessionDelegate
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSURLSessionDelegate
+__OBJC_PROTOCOL_$_NSURLSessionDelegate
+__OBJC_LABEL_PROTOCOL_$_NSURLSessionDelegate
+__OBJC_$_PROTOCOL_REFS_NSURLSessionTaskDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSURLSessionTaskDelegate
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSURLSessionTaskDelegate
+__OBJC_PROTOCOL_$_NSURLSessionTaskDelegate
+__OBJC_LABEL_PROTOCOL_$_NSURLSessionTaskDelegate
+__OBJC_$_PROTOCOL_REFS_NSURLSessionDataDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSURLSessionDataDelegate
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSURLSessionDataDelegate
+__OBJC_PROTOCOL_$_NSURLSessionDataDelegate
+__OBJC_LABEL_PROTOCOL_$_NSURLSessionDataDelegate
+__OBJC_$_PROTOCOL_REFS_NSURLSessionDownloadDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_NSURLSessionDownloadDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSURLSessionDownloadDelegate
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSURLSessionDownloadDelegate
+__OBJC_PROTOCOL_$_NSURLSessionDownloadDelegate
+__OBJC_LABEL_PROTOCOL_$_NSURLSessionDownloadDelegate
+__OBJC_CLASS_PROTOCOLS_$_AFURLSessionManagerTaskDelegate
+__OBJC_METACLASS_RO_$_AFURLSessionManagerTaskDelegate
+__OBJC_$_INSTANCE_METHODS_AFURLSessionManagerTaskDelegate
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._manager
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._mutableData
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._uploadProgress
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._downloadProgress
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._downloadFileURL
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._sessionTaskMetrics
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._downloadTaskDidFinishDownloading
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._uploadProgressBlock
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._downloadProgressBlock
+_OBJC_IVAR_$_AFURLSessionManagerTaskDelegate._completionHandler
+__OBJC_$_INSTANCE_VARIABLES_AFURLSessionManagerTaskDelegate
+__OBJC_$_PROP_LIST_AFURLSessionManagerTaskDelegate
+__OBJC_CLASS_RO_$_AFURLSessionManagerTaskDelegate
+_OBJC_CLASSLIST_REFERENCES_$_.285
+_OBJC_SELECTOR_REFERENCES_.297
+_OBJC_SELECTOR_REFERENCES_.299
+__OBJC_$_CLASS_METHODS__AFURLSessionTaskSwizzling
+__OBJC_METACLASS_RO_$__AFURLSessionTaskSwizzling
+__OBJC_$_INSTANCE_METHODS__AFURLSessionTaskSwizzling
+__OBJC_CLASS_RO_$__AFURLSessionTaskSwizzling
+_OBJC_CLASSLIST_REFERENCES_$_.315
+_OBJC_SELECTOR_REFERENCES_.317
+_OBJC_CLASSLIST_REFERENCES_$_.322
+_OBJC_SELECTOR_REFERENCES_.324
+_OBJC_SELECTOR_REFERENCES_.326
+_OBJC_CLASSLIST_REFERENCES_$_.327
+_OBJC_SELECTOR_REFERENCES_.329
+_OBJC_SELECTOR_REFERENCES_.331
+_OBJC_SELECTOR_REFERENCES_.333
+_OBJC_CLASSLIST_REFERENCES_$_.334
+___block_descriptor_24_e4_20s_e40_v16?0"NSArray"4"NSArray"8"NSArray"12l
+_OBJC_SELECTOR_REFERENCES_.353
+_OBJC_SELECTOR_REFERENCES_.355
+_OBJC_SELECTOR_REFERENCES_.357
+_OBJC_CLASSLIST_REFERENCES_$_.358
+_OBJC_SELECTOR_REFERENCES_.362
+_OBJC_SELECTOR_REFERENCES_.364
+_OBJC_SELECTOR_REFERENCES_.366
+_OBJC_SELECTOR_REFERENCES_.367
+_OBJC_SELECTOR_REFERENCES_.369
+_OBJC_SELECTOR_REFERENCES_.371
+_OBJC_SELECTOR_REFERENCES_.373
+_OBJC_CLASSLIST_REFERENCES_$_.374
+_OBJC_SELECTOR_REFERENCES_.376
+_OBJC_SELECTOR_REFERENCES_.378
+_OBJC_SELECTOR_REFERENCES_.380
+_OBJC_SELECTOR_REFERENCES_.382
+_OBJC_SELECTOR_REFERENCES_.384
+_OBJC_CLASSLIST_REFERENCES_$_.385
+_OBJC_SELECTOR_REFERENCES_.386
+_OBJC_SELECTOR_REFERENCES_.387
+_OBJC_SELECTOR_REFERENCES_.388
+_OBJC_SELECTOR_REFERENCES_.390
+_OBJC_SELECTOR_REFERENCES_.392
+_OBJC_SELECTOR_REFERENCES_.393
+_OBJC_SELECTOR_REFERENCES_.394
+___block_descriptor_24_e4_20bs_e67_"NSURL"16?0"NSURLSession"4"NSURLSessionDownloadTask"8"NSURL"12l
+_OBJC_SELECTOR_REFERENCES_.396
+_OBJC_SELECTOR_REFERENCES_.398
+_OBJC_SELECTOR_REFERENCES_.400
+_OBJC_SELECTOR_REFERENCES_.402
+_OBJC_SELECTOR_REFERENCES_.404
+_OBJC_SELECTOR_REFERENCES_.406
+_OBJC_SELECTOR_REFERENCES_.408
+_OBJC_SELECTOR_REFERENCES_.412
+___block_descriptor_32_e4_20s24s28r_e40_v16?0"NSArray"4"NSArray"8"NSArray"12l
+_OBJC_SELECTOR_REFERENCES_.414
+_OBJC_SELECTOR_REFERENCES_.416
+_OBJC_SELECTOR_REFERENCES_.418
+_OBJC_SELECTOR_REFERENCES_.420
+_OBJC_SELECTOR_REFERENCES_.422
+_OBJC_SELECTOR_REFERENCES_.424
+_OBJC_SELECTOR_REFERENCES_.426
+_OBJC_SELECTOR_REFERENCES_.428
+_OBJC_SELECTOR_REFERENCES_.430
+_OBJC_SELECTOR_REFERENCES_.432
+_OBJC_SELECTOR_REFERENCES_.434
+_OBJC_SELECTOR_REFERENCES_.436
+_OBJC_SELECTOR_REFERENCES_.438
+_OBJC_SELECTOR_REFERENCES_.440
+_OBJC_SELECTOR_REFERENCES_.442
+_OBJC_SELECTOR_REFERENCES_.444
+_OBJC_SELECTOR_REFERENCES_.446
+_OBJC_SELECTOR_REFERENCES_.448
+_OBJC_SELECTOR_REFERENCES_.450
+_OBJC_SELECTOR_REFERENCES_.452
+_OBJC_SELECTOR_REFERENCES_.454
+_OBJC_SELECTOR_REFERENCES_.456
+_OBJC_SELECTOR_REFERENCES_.458
+_OBJC_SELECTOR_REFERENCES_.464
+_OBJC_SELECTOR_REFERENCES_.466
+_OBJC_SELECTOR_REFERENCES_.468
+_OBJC_SELECTOR_REFERENCES_.474
+_OBJC_SELECTOR_REFERENCES_.476
+_OBJC_SELECTOR_REFERENCES_.477
+_OBJC_SELECTOR_REFERENCES_.479
+_OBJC_SELECTOR_REFERENCES_.480
+_OBJC_SELECTOR_REFERENCES_.482
+_OBJC_SELECTOR_REFERENCES_.485
+_OBJC_SELECTOR_REFERENCES_.487
+_OBJC_SELECTOR_REFERENCES_.489
+_OBJC_SELECTOR_REFERENCES_.491
+_OBJC_CLASSLIST_REFERENCES_$_.492
+_OBJC_CLASSLIST_REFERENCES_$_.494
+_OBJC_SELECTOR_REFERENCES_.496
+_OBJC_SELECTOR_REFERENCES_.498
+_OBJC_SELECTOR_REFERENCES_.500
+_OBJC_CLASSLIST_REFERENCES_$_.501
+_OBJC_SELECTOR_REFERENCES_.507
+_OBJC_SELECTOR_REFERENCES_.509
+_OBJC_SELECTOR_REFERENCES_.511
+_OBJC_SELECTOR_REFERENCES_.513
+_OBJC_SELECTOR_REFERENCES_.515
+_OBJC_SELECTOR_REFERENCES_.517
+_OBJC_SELECTOR_REFERENCES_.519
+_OBJC_SELECTOR_REFERENCES_.521
+_OBJC_SELECTOR_REFERENCES_.523
+_OBJC_CLASSLIST_REFERENCES_$_.524
+_OBJC_SELECTOR_REFERENCES_.534
+_OBJC_SELECTOR_REFERENCES_.538
+_OBJC_SELECTOR_REFERENCES_.540
+_OBJC_SELECTOR_REFERENCES_.542
+_OBJC_CLASSLIST_REFERENCES_$_.543
+_OBJC_SELECTOR_REFERENCES_.545
+_OBJC_SELECTOR_REFERENCES_.547
+_OBJC_SELECTOR_REFERENCES_.549
+_OBJC_SELECTOR_REFERENCES_.551
+_OBJC_SELECTOR_REFERENCES_.553
+_OBJC_SELECTOR_REFERENCES_.555
+_OBJC_SELECTOR_REFERENCES_.557
+__OBJC_PROTOCOL_REFERENCE_$_NSCopying
+_OBJC_SELECTOR_REFERENCES_.561
+_OBJC_SELECTOR_REFERENCES_.565
+_OBJC_SELECTOR_REFERENCES_.567
+_OBJC_SELECTOR_REFERENCES_.568
+_OBJC_SELECTOR_REFERENCES_.570
+_OBJC_SELECTOR_REFERENCES_.571
+_OBJC_SELECTOR_REFERENCES_.573
+_OBJC_SELECTOR_REFERENCES_.575
+_OBJC_SELECTOR_REFERENCES_.581
+_OBJC_SELECTOR_REFERENCES_.583
+_OBJC_SELECTOR_REFERENCES_.585
+_OBJC_SELECTOR_REFERENCES_.587
+__OBJC_$_CLASS_METHODS_AFURLSessionManager
+__OBJC_CLASS_PROTOCOLS_$_AFURLSessionManager
+__OBJC_$_CLASS_PROP_LIST_AFURLSessionManager
+__OBJC_METACLASS_RO_$_AFURLSessionManager
+__OBJC_$_INSTANCE_METHODS_AFURLSessionManager
+_OBJC_IVAR_$_AFURLSessionManager._operationQueue
+_OBJC_IVAR_$_AFURLSessionManager._responseSerializer
+_OBJC_IVAR_$_AFURLSessionManager._securityPolicy
+_OBJC_IVAR_$_AFURLSessionManager._completionQueue
+_OBJC_IVAR_$_AFURLSessionManager._completionGroup
+_OBJC_IVAR_$_AFURLSessionManager._sessionConfiguration
+_OBJC_IVAR_$_AFURLSessionManager._session
+_OBJC_IVAR_$_AFURLSessionManager._mutableTaskDelegatesKeyedByTaskIdentifier
+_OBJC_IVAR_$_AFURLSessionManager._lock
+_OBJC_IVAR_$_AFURLSessionManager._sessionDidBecomeInvalid
+_OBJC_IVAR_$_AFURLSessionManager._sessionDidReceiveAuthenticationChallenge
+_OBJC_IVAR_$_AFURLSessionManager._didFinishEventsForBackgroundURLSession
+_OBJC_IVAR_$_AFURLSessionManager._taskWillPerformHTTPRedirection
+_OBJC_IVAR_$_AFURLSessionManager._authenticationChallengeHandler
+_OBJC_IVAR_$_AFURLSessionManager._taskNeedNewBodyStream
+_OBJC_IVAR_$_AFURLSessionManager._taskDidSendBodyData
+_OBJC_IVAR_$_AFURLSessionManager._taskDidComplete
+_OBJC_IVAR_$_AFURLSessionManager._taskDidFinishCollectingMetrics
+_OBJC_IVAR_$_AFURLSessionManager._dataTaskDidReceiveResponse
+_OBJC_IVAR_$_AFURLSessionManager._dataTaskDidBecomeDownloadTask
+_OBJC_IVAR_$_AFURLSessionManager._dataTaskDidReceiveData
+_OBJC_IVAR_$_AFURLSessionManager._dataTaskWillCacheResponse
+_OBJC_IVAR_$_AFURLSessionManager._downloadTaskDidFinishDownloading
+_OBJC_IVAR_$_AFURLSessionManager._downloadTaskDidWriteData
+_OBJC_IVAR_$_AFURLSessionManager._downloadTaskDidResume
+__OBJC_$_INSTANCE_VARIABLES_AFURLSessionManager
+__OBJC_$_PROP_LIST_AFURLSessionManager
+__OBJC_CLASS_RO_$_AFURLSessionManager
+_url_session_manager_completion_group.af_url_session_manager_completion_group
+_url_session_manager_completion_group.onceToken
+_url_session_manager_processing_queue.af_url_session_manager_processing_queue
+_url_session_manager_processing_queue.onceToken
+___block_literal_global.734
+/Users/ws/Documents/MyLib/cocoapods-project-gen/spec/cocoapods/Resources/output/project_gen/App/Pods/AFNetworking/AFNetworking/AFURLSessionManager.m
+__url_session_manager_processing_queue_block_invoke
+AFNetworking/AFNetworking/AFURLSessionManager.m
+__url_session_manager_completion_group_block_invoke
+url_session_manager_completion_group
+AFNetworking/AFNetworking/AFURLSessionManager.h
+__72-[AFURLSessionManager URLSessionDidFinishEventsForBackgroundURLSession:]_block_invoke
+__39-[AFURLSessionManager tasksForKeyPath:]_block_invoke
+__89-[AFURLSessionManager addDelegateForDownloadTask:progress:destination:completionHandler:]_block_invoke
+__38-[AFURLSessionManager taskDidSuspend:]_block_invoke
+__37-[AFURLSessionManager taskDidResume:]_block_invoke
+__52-[AFURLSessionManager initWithSessionConfiguration:]_block_invoke
+af_swizzleSelector
+af_addMethod
+__destroy_helper_block_e4_20s24s28s32s36s40r
+__copy_helper_block_e4_20s24s28s32s36s40r
+__72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke_3
+__72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke_2.108
+__72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke.105
+__destroy_helper_block_e4_20s24s28s32s36r
+__copy_helper_block_e4_20s24s28s32s36r
+__72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke_2
+__72-[AFURLSessionManagerTaskDelegate URLSession:task:didCompleteWithError:]_block_invoke
+url_session_manager_processing_queue
+__48-[AFURLSessionManagerTaskDelegate initWithTask:]_block_invoke_2
+__48-[AFURLSessionManagerTaskDelegate initWithTask:]_block_invoke.46
+__destroy_helper_block_e4_20w
+__copy_helper_block_e4_20w
+__48-[AFURLSessionManagerTaskDelegate initWithTask:]_block_invoke

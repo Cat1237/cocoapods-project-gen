@@ -8,11 +8,10 @@ module ProjectGen
   class Command < CLAide::Command
     require 'cocoapods-project-gen/command/gen'
 
-
     self.abstract_command = false
-    self.command = 'hmapfile'
+    self.command = 'xcframework'
     self.version = VERSION
-    self.description = 'Read or write header map file.'
+    self.description = 'Creates Pods project and gen xcframework.'
     self.plugin_prefixes = %w[claide gen]
 
     def initialize(argv)

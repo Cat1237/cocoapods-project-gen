@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require File.expand_path('../lib/cocoapods-project-gen/gem_version', __FILE__)
 
 Gem::Specification.new do |spec|

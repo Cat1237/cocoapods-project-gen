@@ -1,5 +1,6 @@
 require 'cocoapods-project-gen/gen/project_gen'
 require 'cocoapods-project-gen/gen/project_builder'
+
 module ProjectGen
   class XcframeworkGen
 
@@ -19,20 +20,28 @@ module ProjectGen
 
     # Initialize a new instance
     #
-    # @param [<Pathname, String>] work_dir 
+    # @param [<Pathname, String>] work_dir
     #        the temporary directory used by the Generator.
     #
     # @param [Symbol] The name of the build configuration.
     #
-    def generate_xcframework(work_dir, configuration = nil)
+    # @param [Bool] Build xcframework.
+    #
+    def generate_xcframework(work_dir, configuration = nil, build: true)
       app_root = Pathname.new(work_dir)
+      o_value = nil
       @project_gen.generate!(app_root) do |platforms, pod_targets, validated, no_clean|
         raise 'Could not generator App.xcodeproj' unless validated
 
-        bm = BuildManager.new(app_root, no_clean: no_clean)
-        bm.create_xcframework_products!(platforms, pod_targets, configuration)
+        if build
+          bm = BuildManager.new(app_root, no_clean: no_clean)
+          o_value = bm.create_xcframework_products!(platforms, pod_targets, configuration)
+        else
+          o_value = pod_targets
+        end
         $stdout.puts 'finish...'
       end
+      o_value
     end
   end
 end

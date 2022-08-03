@@ -1,10 +1,11 @@
-require 'cocoapods'
-require 'cocoapods-project-gen/gen/swift_module_helper'
-require 'cocoapods-project-gen/gen/project_gen_helper'
 require 'fileutils'
 
 module ProjectGen
+  autoload :PodDirCopyCleaner, 'cocoapods-project-gen/gen/pod/pod_copy_cleaner'
   class ProjectGenerator < Pod::Validator
+    require 'cocoapods-project-gen/gen/pod/swift_module_helper'
+    require 'cocoapods-project-gen/gen/pod/project_gen_helper'
+
     include Pod
     include ProjectGen::SwiftModule
     include ProjectGen::Helper
@@ -29,9 +30,9 @@ module ProjectGen
     #
     # @param  [Boolean] Whether modular headers should be used for the installation.
     #
-    def self.new_from_local(podspecs = [], source_urls = [Pod::Installer::MASTER_SPECS_REPO_GIT_URL], platforms = [], product_type = :framework, configuration = :release, swift_version = nil, use_modular_headers: false)
+    def self.new_from_local(podspecs = [], source_urls = [Pod::TrunkSource::TRUNK_REPO_URL], platforms = [], product_type = :framework, configuration = :release, swift_version = nil, use_modular_headers: false)
       generator = new(podspecs[0], source_urls, platforms)
-      generator.local = false
+      generator.local = true
       generator.no_subspecs    = true
       generator.only_subspec   = nil
       generator.no_clean       = false
@@ -65,8 +66,9 @@ module ProjectGen
       end
       @validation_dir = dir
       unless config.silent?
-        Pod::UI.print " -> #{file.basename}\r\n"
-        external_podspecs.each { |e| Pod::UI.print " -> #{File.basename(e)}\r\n" } unless external_podspecs&.nil?
+        podspecs.each do |spec|
+          Pod::UI.print " -> #{spec.name}\r\n"
+        end
       end
       $stdout.flush
       send(:perform_linting) if respond_to?(:perform_linting)
@@ -86,19 +88,18 @@ module ProjectGen
         error('spec', "Validating a non library spec (`#{spec.name}`) is not supported.")
         return false
       end
-      platforms = send(:platforms_to_lint, spec)
+      platforms = determine_platform
       begin
         setup_validation_environment
         create_app_project(platforms)
         handle_local_pod(platforms)
-        check_file_patterns(spec)
         install_pod(platforms)
         validate_swift_version
         add_app_project_import(platforms)
         validate_vendored_dynamic_frameworks(platforms)
         valid = validated?
         ts = pod_targets.each_with_object({}) do |pod_target, sum|
-          name = pod_target.root_spec.name
+          name = pod_target.root_spec
           sum[name] ||= []
           sum[name] << pod_target
           sum
@@ -122,86 +123,34 @@ module ProjectGen
 
     def handle_local_pod(platforms)
       sandbox = Pod::Sandbox.new(@validation_dir + 'Pods')
-      test_spec_names = platforms.map do |platform|
-        consumer = spec.consumer(platform)
-        consumer.spec.test_specs.select do |ts|
-          ts.supported_on_platform?(platform.name)
-        end.map(&:name)
-      end
-
-      podfile = podfile_from_spec(platforms, use_frameworks, test_spec_names,
+      podfile = podfile_from_spec(platforms, use_frameworks,
                                   use_modular_headers, use_static_frameworks)
 
       @installer = Pod::Installer.new(sandbox, podfile)
       @installer.use_default_plugins = false
-      @installer.has_dependencies = !spec.dependencies.empty?
-      %i[prepare resolve_dependencies download_dependencies clean_pod_sources write_lockfiles].each do |m|
+      @installer.has_dependencies = podspecs.any? { |podspec| !podspec.all_dependencies.empty? }
+      %i[prepare resolve_dependencies install_pod_sources run_podfile_pre_install_hooks clean_pod_sources
+         write_lockfiles].each do |m|
         case m
         when :clean_pod_sources
-          copy_and_clean(sandbox)
-          podspecs.each { |s| sandbox.development_pods.delete(s.name) }
+          ProjectGen::PodDirCopyCleaner.new(include_specification).copy_and_clean(config.sandbox_root, sandbox)
+          include_specification.each { |s| sandbox.development_pods.delete(s.name) }
           @installer.send(m)
         else
           @installer.send(m)
           next unless m == :resolve_dependencies
 
-          podspecs.each { |s| sandbox.store_local_path(s.name, s.defined_in_file, absolute?(s.defined_in_file)) }
+          # local --> source in local
+          # no-local --> source from cdn
+          # external_podspecs --> source in cdn
+          # include_podspecs  --> source in local
+          include_specification.each do |spec|
+            sandbox.store_local_path(spec.name, spec.defined_in_file, Utils.absolute?(spec.defined_in_file))
+          end
         end
       end
       library_targets = pod_targets.select(&:build_as_library?)
       add_swift_library_compatibility_header(library_targets)
-      @file_accessor = pod_targets.flat_map(&:file_accessors).find do |fa|
-        fa.spec.name == spec.name
-      end
-    end
-
-    def podspecs
-      ps = [file]
-      ps += external_podspecs.map { |pa| Pathname.new(pa) } if external_podspecs
-      ps += include_podspecs.map { |pa| Pathname.new(pa) } if include_podspecs
-      ps.uniq.map { |path| Pod::Specification.from_file(path) }
-    end
-
-    # @return [Bool]
-    #
-    def absolute?(path)
-      Pathname(path).absolute? || path.to_s.start_with?('~')
-    end
-
-    def group_subspecs_by_platform(spec)
-      specs_by_platform = {}
-      [spec, *spec.recursive_subspecs].each do |ss|
-        ss.available_platforms.each do |platform|
-          specs_by_platform[platform] ||= []
-          specs_by_platform[platform] << ss
-        end
-      end
-      specs_by_platform
-    end
-
-    def copy(source, destination, specs_by_platform)
-      path_list = Pod::Sandbox::PathList.new(source)
-      file_accessors = specs_by_platform.flat_map do |platform, specs|
-        specs.flat_map { |spec| Pod::Sandbox::FileAccessor.new(path_list, spec.consumer(platform)) }
-      end
-      used_files = Pod::Sandbox::FileAccessor.all_files(file_accessors)
-      used_files.each do |path|
-        path = Pathname(path)
-        n_path = destination.join(path.relative_path_from(source))
-        n_path.dirname.mkpath
-        FileUtils.cp_r(path, n_path.dirname)
-      end
-    end
-
-    def copy_and_clean(sandbox)
-      podspecs.each do |spec|
-        destination = config.sandbox_root + spec.name
-        source = sandbox.pod_dir(spec.name)
-        specs_by_platform = group_subspecs_by_platform(spec)
-        destination.parent.mkpath
-        FileUtils.rm_rf(destination)
-        copy(source, destination, specs_by_platform)
-      end
     end
   end
 end

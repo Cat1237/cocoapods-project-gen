@@ -1,0 +1,1 @@
+../AFAutoPurgingImageCache.h

@@ -5,10 +5,10 @@ module ProjectGen
     # hmap file gen cmd
     class Gen < Command
       # summary
-      self.summary = 'Creates Pods project.'
+      self.summary = 'Creates Pods project and gen xcframework.'
 
       self.description = <<-DESC
-        Creates the target for the Pods libraries in the Pods project and the relative support files.
+        Creates the target for the Pods libraries in the Pods project and the relative support files and gen xcframework.
       DESC
 
       self.arguments = [
@@ -17,19 +17,21 @@ module ProjectGen
 
       def initialize(argv)
         super
-        @output_dir = argv.option('output-dir', Pathname.pwd.join('ProjectGen/App'))
+        @build = argv.flag?('build', true)
+        @local = argv.flag?('local', true)
+        @output_dir = File.join(argv.option('output-dir', Pathname.pwd), 'project_gen/App')
         @allow_warnings      = argv.flag?('allow-warnings', true)
-        @clean               = argv.flag?('clean', true)
+        @clean               = argv.flag?('clean', false)
         @subspecs            = argv.flag?('subspecs', true)
         @only_subspec        = argv.option('subspec')
         @use_frameworks      = !argv.flag?('use-libraries')
-        @use_modular_headers = argv.flag?('use-modular-headers')
+        @use_modular_headers = argv.flag?('use-modular-headers', true)
         @use_static_frameworks = argv.flag?('use-static-frameworks')
         @source_urls         = argv.option('sources', Pod::TrunkSource::TRUNK_REPO_URL).split(',')
         @platforms           = argv.option('platforms', '').split(',')
         @swift_version       = argv.option('swift-version', nil)
-        @include_podspecs    = argv.option('include-podspecs', nil)
-        @external_podspecs   = argv.option('external-podspecs', nil)
+        @include_podspecs    = argv.option('include-podspecs', '').split(',')
+        @external_podspecs   = argv.option('external-podspecs', '').split(',')
         @podspecs_paths      = argv.arguments!
         @configuration       = argv.option('configuration', nil)
       end
@@ -41,7 +43,9 @@ module ProjectGen
       # help
       def self.options
         [
-          ['--output-dir', 'Gen output dir'],
+          ['--no-build', 'Is or is not to build xcframework'],
+          ['--no-local', 'podpsecs is local or not'],
+          ['--output-dir=<path>', 'Gen output dir'],
           ['--allow-warnings', 'Gen even if warnings are present'],
           ['--subspec=NAME', 'Gen only the given subspec'],
           ['--no-subspecs', 'Gen skips validation of subspecs'],
@@ -65,7 +69,7 @@ module ProjectGen
 
       def run
         generator = ProjectGenerator.new(podspecs_to_gen[0], @source_urls, @platforms)
-        generator.local          = false
+        generator.local          = @local
         generator.no_clean       = !@clean
         generator.allow_warnings = @allow_warnings
         generator.no_subspecs    = !(!@subspecs || @only_subspec)
@@ -77,10 +81,17 @@ module ProjectGen
         generator.swift_version = @swift_version
         generator.test_specs = @test_specs
         generator.include_podspecs = @include_podspecs
-        generator.external_podspecs = @external_podspecs ? @external_podspecs : podspecs_to_gen.drop(1)
+        generator.external_podspecs = @external_podspecs
+        if @local
+          generator.include_podspecs += podspecs_to_gen
+          generator.include_podspecs.uniq!
+        else
+          generator.external_podspecs += podspecs_to_gen
+          generator.external_podspecs.uniq!
+        end
         generator.configuration = @configuration
         xc_gen = ProjectGen::XcframeworkGen.new(generator)
-        xc_gen.generate_xcframework(@output_dir)
+        xc_gen.generate_xcframework(@output_dir, build: @build)
       end
 
       private
@@ -98,9 +109,14 @@ module ProjectGen
           Array(@podspecs_paths)
         else
           podspecs = Pathname.glob(Pathname.pwd + '*.podspec{.json,}')
+
           if podspecs.count.zero?
-            raise Informative, 'Unable to find a podspec in the working ' \
-              'directory'
+            podspecs << if @local
+                          @include_podspecs[0]
+                        else
+                          @external_podspecs[0]
+                        end
+            raise Informative, 'Unable to find a podspec in the working.' if podspecs.count.zero?
           end
           podspecs
         end

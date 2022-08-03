@@ -2,10 +2,9 @@ require 'cocoapods'
 
 module ProjectGen
   class BuildManager
-    require 'cocoapods-project-gen/gen/xcode_build'
+    require 'cocoapods-project-gen/gen/build/xcode_build'
     require 'cocoapods-project-gen/gen/product'
-
-    autoload :HeadersStore, 'cocoapods-project-gen/gen/headers_store'
+    require 'cocoapods-project-gen/gen/build/headers_store'
 
     attr_reader :root
 
@@ -16,11 +15,11 @@ module ProjectGen
     end
 
     def product_dir
-      Pathname.new(root).join('./ProjectGenProducts').expand_path
+      Pathname.new(root.parent).join('./project_gen_products').expand_path
     end
 
     def archive_dir
-      Pathname.new(root).join('./ProjectGenArchive').expand_path
+      Pathname.new(root).join('./project_gen_archive').expand_path
     end
 
     # Integrates the user projects associated with the {TargetDefinitions}
@@ -29,21 +28,25 @@ module ProjectGen
     # @return [void]
     #
     def create_xcframework_products!(platforms, pod_targets, configuration = nil)
-      $stdout.puts 'start archiving...'
       ts = pod_targets.values.flatten
-      archive_paths = platforms.flat_map do |platform|
-        archive_path = compute_archive_paths(platform, ts, configuration)
-        archive_path.each { |ap| $stdout.puts "[archive]: #{ap}".green }
-        archive_path
-      end
-      pod_targets.each_pair do |key, value|
-        $stdout.puts "start #{key} xcframework..."
-
-        products = Products.new([value[0]], product_dir, archive_paths, root.parent)
-        products.create_bin_products
-        products.add_pod_targets_file_accessors_paths
-      end
-      FileUtils.rm_rf(product_dir) unless @no_clean
+      $stdout.print '***'.green
+      $stdout.print 'Start Archiving...'
+      $stdout.puts ''
+      platform_archive_paths = Hash[platforms.map do |platform|
+        archive_paths = compute_archive_paths(platform, ts, configuration)
+        [platform.name, archive_paths]
+      end]
+      output = Hash[pod_targets.map do |key, targets|
+        products = targets.map do |target|
+          Product.new(target, product_dir, root.parent, platform_archive_paths[target.platform.name])
+        end
+        ps = Products.new(key, products)
+        ps.create_bin_products
+        ps.add_pod_targets_file_accessors_paths
+        [key, ps.product_path]
+      end]
+      FileUtils.rm_rf(@root) unless @no_clean
+      output
     end
 
     private
@@ -62,14 +65,31 @@ module ProjectGen
         pod_project_path = File.expand_path('./Pods/Pods.xcodeproj', @app_root)
         archive_root = archive_dir.join(sdk.to_s)
         archive_path = archive_root.join('Pods-App.xcarchive')
-        XcodeBuild.archive(args, pod_project_path, "Pods-App-#{platform.name}", archive_path)
+        error = XcodeBuild.archive?(args, pod_project_path, "Pods-App-#{platform.name}", archive_path)
+        next if error
+
+        print_pod_archive_infos(sdk, archive_path)
         library_targets = pod_targets.select(&:build_as_library?)
         library_targets.each do |target|
+          rename_library_product_name(target, archive_path)
           archive_headers_path = archive_root.join(target.pod_name)
           link_headers(target, archive_headers_path)
         end
         archive_path
       end
+    end
+
+    def rename_library_product_name(target, archive_path)
+      return unless target.build_as_library?
+
+      full_archive_path = archive_path.join('Products/usr/local/lib')
+      full_product_path = full_archive_path.join(target.static_library_name)
+      scope_suffix = target.scope_suffix
+      return unless full_product_path.exist? && scope_suffix && target.label.end_with?(scope_suffix)
+
+      label = Utils.remove_target_scope_suffix(target.label, scope_suffix)
+      new_full_archive_path = full_archive_path.join("lib#{label}.a")
+      File.rename(full_product_path, new_full_archive_path)
     end
 
     # Creates the link to the headers of the Pod in the sandbox.
@@ -98,9 +118,18 @@ module ProjectGen
         root_name = Pod::Specification.root_name(target.pod_name)
         pod_dir = target.sandbox.sources_root.join(root_name)
         module_headers = pod_dir.join(Constants::COPY_LIBRARY_SWIFT_HEADERS)
-        build_headers.add_files(root_name, module_headers.children)
-        build_headers.root
+        build_headers.add_files(root_name, module_headers.children) if module_headers.exist?
       end
+    end
+
+    # Prints the list of specs & pod cache dirs for a single pod name.
+    #
+    # This output is valid YAML so it can be parsed with 3rd party tools
+    #
+    def print_pod_archive_infos(sdk, archive_path)
+      $stdout.puts('  - Archive: ')
+      $stdout.puts("    Type:    #{sdk}")
+      $stdout.puts("    path:    #{archive_path}")
     end
   end
 end
