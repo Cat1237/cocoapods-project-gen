@@ -1,4 +1,4 @@
-example_id                                | status | run_time      |
------------------------------------------ | ------ | ------------- |
-./spec/cocoapods/gen_command_spec.rb[1:1] | passed | 47.08 seconds |
-./spec/cocoapods/gen_spec.rb[1:1]         | passed | 2.5 seconds   |
+example_id                                | status | run_time     |
+----------------------------------------- | ------ | ------------ |
+./spec/cocoapods/gen_command_spec.rb[1:1] | failed | 7.92 seconds |
+./spec/cocoapods/gen_spec.rb[1:1]         | passed | 2.5 seconds  |

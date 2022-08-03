@@ -116,7 +116,8 @@ module ProjectGen
                         else
                           @external_podspecs[0]
                         end
-            raise Informative, 'Unable to find a podspec in the working.' if podspecs.count.zero?
+            podspecs.compact!            
+            raise Informative, 'Unable to find a podspec in the working. Is local or not local?' if podspecs.count.zero?
           end
           podspecs
         end
