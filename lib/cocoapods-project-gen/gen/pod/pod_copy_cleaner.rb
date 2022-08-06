@@ -1,5 +1,3 @@
-require 'cocoapods/downloader/cache'
-
 module ProjectGen
   class PodDirCopyCleaner
     def initialize(podspecs)
@@ -37,7 +35,7 @@ module ProjectGen
       path_list = Pod::Sandbox::PathList.new(source)
       file_accessors = specs_by_platform.flat_map do |platform, specs|
         specs.flat_map do |spec|
-          Pod::Sandbox::FileAccessor.new(path_list, spec.consumer(platform)) 
+          Pod::Sandbox::FileAccessor.new(path_list, spec.consumer(platform))
         end
       end
       used_files = Pod::Sandbox::FileAccessor.all_files(file_accessors)

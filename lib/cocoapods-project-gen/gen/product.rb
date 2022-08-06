@@ -28,7 +28,7 @@ module ProjectGen
     def build_xcframework
       xc_args = @products.flat_map(&:create_bin_product_args!)
       error = XcodeBuild.create_xcframework?(xc_args, xcframework_product_path)
-      print_pod_xcframework_infos(xcframework_product_path) unless error
+      print_pod_xcframework_infos unless error
     end
 
     def xcframework_product_path
@@ -44,12 +44,12 @@ module ProjectGen
     #
     # This output is valid YAML so it can be parsed with 3rd party tools
     #
-    def print_pod_xcframework_infos(xcframework_product_path)
+    def print_pod_xcframework_infos
       product = @products[0]
-      $stdout.puts("#{product.xcframework_name}:".green)
-      $stdout.puts("  - Version: #{product.version}".green)
-      $stdout.puts("    Type:    #{product.product_type}".green)
-      $stdout.puts("    path:    #{product_path}".green)
+      Results.puts("#{product.xcframework_name}:".green)
+      Results.puts("  - Version: #{product.version}".green)
+      Results.puts("    Type:    #{product.product_type}".green)
+      Results.puts("    path:    #{product_path}".green)
     end
   end
 

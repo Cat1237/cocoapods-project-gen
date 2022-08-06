@@ -4,7 +4,26 @@ module ProjectGen
   module Constants
     PRODUCT_DIR = 'Products'.freeze
 
-    COPY_LIBRARY_SWIFT_HEADERS = 'Copy-Library-Swift-Headers'
+    # The default version of Swift to use when linting pods
+    #
+    DEFAULT_SWIFT_VERSION = '4.0'.freeze
+
+    # The valid platforms for linting
+    #
+    VALID_PLATFORMS = Pod::Platform.all.freeze
+
+    COPY_LIBRARY_SWIFT_HEADERS = 'Copy-Library-Swift-Headers'.freeze
+
+    # Whether the platform with the specified name is valid
+    #
+    # @param  [Platform] platform
+    #         The platform to check
+    #
+    # @return [Boolean] True if the platform is valid
+    #
+    def self.valid_platform?(platform)
+      VALID_PLATFORMS.any? { |p| p.name == platform.name }
+    end
 
     def self.sdks(platform_name)
       case platform_name
@@ -38,7 +57,7 @@ module ProjectGen
       appletvsimulator: %w[x86_64 arm64],
       macosx: %w[x86_64 arm64]
     }.freeze
-    
+
     SDK_DESTINATION = {
       iphonesimulator: 'iOS Simulator',
       iphoneos: 'iOS',

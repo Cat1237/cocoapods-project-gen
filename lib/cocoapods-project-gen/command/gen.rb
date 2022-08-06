@@ -17,21 +17,23 @@ module ProjectGen
 
       def initialize(argv)
         super
-        @build = argv.flag?('build', true)
-        @local = argv.flag?('local', true)
-        @output_dir = File.join(argv.option('output-dir', Pathname.pwd), 'project_gen/App')
+        @build    = argv.flag?('build', true)
+        @local = argv.flag?('local')
+        @build_library_for_distribution = argv.flag?('build-library-for-distribution')
+        @use_latest = argv.flag?('use-latest', true)
+        output_dir = argv.option('output-dir', Pathname.pwd)
+        @output_dir = Pathname.new(output_dir).expand_path.join('project_gen/App')
         @allow_warnings      = argv.flag?('allow-warnings', true)
         @clean               = argv.flag?('clean', false)
-        @subspecs            = argv.flag?('subspecs', true)
-        @only_subspec        = argv.option('subspec')
+        @only_subspecs       = argv.option('subspecs', '').split(',')
         @use_frameworks      = !argv.flag?('use-libraries')
         @use_modular_headers = argv.flag?('use-modular-headers', true)
         @use_static_frameworks = argv.flag?('use-static-frameworks')
         @source_urls         = argv.option('sources', Pod::TrunkSource::TRUNK_REPO_URL).split(',')
         @platforms           = argv.option('platforms', '').split(',')
         @swift_version       = argv.option('swift-version', nil)
-        @include_podspecs    = argv.option('include-podspecs', '').split(',')
-        @external_podspecs   = argv.option('external-podspecs', '').split(',')
+        @include_podspecs    = argv.option('include-podspecs', '').split(',').map { |path| Pathname.new(path).expand_path }
+        @external_podspecs   = argv.option('external-podspecs', '').split(',').map { |path| Pathname.new(path).expand_path }
         @podspecs_paths      = argv.arguments!
         @configuration       = argv.option('configuration', nil)
       end
@@ -44,11 +46,12 @@ module ProjectGen
       def self.options
         [
           ['--no-build', 'Is or is not to build xcframework'],
-          ['--no-local', 'podpsecs is local or not'],
-          ['--output-dir=<path>', 'Gen output dir'],
+          ['--build-library-for-distribution', ' Enables BUILD_LIBRARY_FOR_DISTRIBUTION'],
+          ['--use-latest', 'When multiple dependencies with different sources, use latest.'],
+          ['--local', 'podpsecs is local or not'],
+          ['--output-dir=/project/dir/', 'Gen output dir'],
           ['--allow-warnings', 'Gen even if warnings are present'],
-          ['--subspec=NAME', 'Gen only the given subspec'],
-          ['--no-subspecs', 'Gen skips validation of subspecs'],
+          ['--subspecs=NAME/NAME', 'Gen only the given subspecs'],
           ['--no-clean', 'Gen leaves the build directory intact for inspection'],
           ['--use-libraries', 'Gen uses static libraries to install the spec'],
           ['--use-modular-headers', 'Gen uses modular headers during installation'],
@@ -57,7 +60,6 @@ module ProjectGen
             "(defaults to #{Pod::TrunkSource::TRUNK_REPO_URL}). Multiple sources must be comma-delimited"],
           ['--platforms=ios,macos', 'Gen against specific platforms (defaults to all platforms supported by the ' \
             'podspec). Multiple platforms must be comma-delimited'],
-          ['--private', 'Gen skips checks that apply only to public specs'],
           ['--swift-version=VERSION', 'The `SWIFT_VERSION` that should be used to gen the spec. ' \
            'This takes precedence over the Swift versions specified by the spec or a `.swift-version` file'],
           ['--include-podspecs=**/*.podspec', 'Additional ancillary podspecs which are used for gening via :path'],
@@ -68,18 +70,16 @@ module ProjectGen
       end
 
       def run
-        generator = ProjectGenerator.new(podspecs_to_gen[0], @source_urls, @platforms)
+        generator = ProjectGenerator.new(@source_urls, @platforms)
         generator.local          = @local
         generator.no_clean       = !@clean
+        generator.use_latest = @use_latest
         generator.allow_warnings = @allow_warnings
-        generator.no_subspecs    = !(!@subspecs || @only_subspec)
-        generator.only_subspec   = @only_subspec
+        generator.only_subspecs   = @only_subspecs
         generator.use_frameworks = @use_frameworks
         generator.use_modular_headers = @use_modular_headers
         generator.use_static_frameworks = @use_static_frameworks
-        generator.ignore_public_only_results = @private
         generator.swift_version = @swift_version
-        generator.test_specs = @test_specs
         generator.include_podspecs = @include_podspecs
         generator.external_podspecs = @external_podspecs
         if @local
@@ -89,9 +89,13 @@ module ProjectGen
           generator.external_podspecs += podspecs_to_gen
           generator.external_podspecs.uniq!
         end
+        if generator.include_podspecs.empty? && generator.external_podspecs.empty?
+          raise Informative, 'Unable to find podspecs in the working. Is local or not local?'
+        end
+
         generator.configuration = @configuration
         xc_gen = ProjectGen::XcframeworkGen.new(generator)
-        xc_gen.generate_xcframework(@output_dir, build: @build)
+        xc_gen.generate_xcframework(@output_dir, build: @build, build_library_for_distribution: @build_library_for_distribution)
       end
 
       private
@@ -105,21 +109,10 @@ module ProjectGen
       # @raise  If multiple podspecs are found.
       #
       def podspecs_to_gen
-        if !@podspecs_paths.empty?
-          Array(@podspecs_paths)
+        if @podspecs_paths.empty?
+          Pathname.glob(Pathname.pwd.join('*.podspec{.json,}'))
         else
-          podspecs = Pathname.glob(Pathname.pwd + '*.podspec{.json,}')
-
-          if podspecs.count.zero?
-            podspecs << if @local
-                          @include_podspecs[0]
-                        else
-                          @external_podspecs[0]
-                        end
-            podspecs.compact!            
-            raise Informative, 'Unable to find a podspec in the working. Is local or not local?' if podspecs.count.zero?
-          end
-          podspecs
+          Array(@podspecs_paths).map { |path| Pathname.new(path).expand_path }
         end
       end
     end

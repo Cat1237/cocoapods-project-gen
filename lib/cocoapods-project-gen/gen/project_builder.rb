@@ -8,18 +8,19 @@ module ProjectGen
 
     attr_reader :root
 
-    def initialize(app_root, root = nil, no_clean: true)
+    def initialize(app_root, root = nil, no_clean: true, fail_fast: true)
       @root = root.nil? ? app_root : root
       @app_root = app_root
       @no_clean = no_clean
+      @fail_fast = fail_fast
     end
 
     def product_dir
       Pathname.new(root.parent).join('./project_gen_products').expand_path
     end
 
-    def archive_dir
-      Pathname.new(root).join('./project_gen_archive').expand_path
+    def archives_dir
+      Pathname.new(root.parent).join('./project_gen_archives').expand_path
     end
 
     # Integrates the user projects associated with the {TargetDefinitions}
@@ -27,15 +28,15 @@ module ProjectGen
     #
     # @return [void]
     #
-    def create_xcframework_products!(platforms, pod_targets, configuration = nil)
+    def create_xcframework_products!(platforms, pod_targets, configuration = nil, build_library_for_distribution: false)
       ts = pod_targets.values.flatten
-      $stdout.print '***'.green
-      $stdout.print 'Start Archiving...'
-      $stdout.puts ''
+      Results.puts '-> Start Archiving...'.green
       platform_archive_paths = Hash[platforms.map do |platform|
-        archive_paths = compute_archive_paths(platform, ts, configuration)
+        archive_paths = compute_archive_paths(platform, ts, configuration, build_library_for_distribution)
         [platform.name, archive_paths]
       end]
+      return if platform_archive_paths.values.flatten.empty?
+
       output = Hash[pod_targets.map do |key, targets|
         products = targets.map do |target|
           Product.new(target, product_dir, root.parent, platform_archive_paths[target.platform.name])
@@ -45,27 +46,35 @@ module ProjectGen
         ps.add_pod_targets_file_accessors_paths
         [key, ps.product_path]
       end]
-      FileUtils.rm_rf(@root) unless @no_clean
+      unless @no_clean
+        FileUtils.rm_rf(@app_root)
+        FileUtils.rm_rf(archives_dir)
+      end
       output
     end
 
     private
 
-    def compute_archive_paths(platform, pod_targets, configuration)
+    def compute_archive_paths(platform, pod_targets, configuration, build_library_for_distribution)
       sdks = Constants.sdks(platform.name)
-      archive_paths_by_platform(sdks, platform, pod_targets, configuration)
+      archive_paths_by_platform(sdks, platform, pod_targets, configuration, build_library_for_distribution)
     end
 
-    def archive_paths_by_platform(sdks, platform, pod_targets, configuration)
+    def archive_paths_by_platform(sdks, platform, pod_targets, configuration, build_library_for_distribution)
       sdks.map do |sdk|
-        args = %w[BUILD_LIBRARY_FOR_DISTRIBUTION=YES]
+        args = if build_library_for_distribution
+                 %w[BUILD_LIBRARY_FOR_DISTRIBUTION=YES]
+               else
+                 []
+               end
         args += %W[-destination generic/platform=#{Constants::SDK_DESTINATION[sdk]}]
         args += %W[-configuration #{configuration}] unless configuration.nil?
         args += %W[-sdk #{sdk}]
         pod_project_path = File.expand_path('./Pods/Pods.xcodeproj', @app_root)
-        archive_root = archive_dir.join(sdk.to_s)
+        archive_root = archives_dir.join(sdk.to_s)
         archive_path = archive_root.join('Pods-App.xcarchive')
-        error = XcodeBuild.archive?(args, pod_project_path, "Pods-App-#{platform.name}", archive_path)
+        error = XcodeBuild.archive?(args, pod_project_path, "Pods-App-#{platform.string_name}", archive_path)
+        break if @fail_fast && error
         next if error
 
         print_pod_archive_infos(sdk, archive_path)
@@ -76,7 +85,7 @@ module ProjectGen
           link_headers(target, archive_headers_path)
         end
         archive_path
-      end
+      end.compact
     end
 
     def rename_library_product_name(target, archive_path)
@@ -118,7 +127,8 @@ module ProjectGen
         root_name = Pod::Specification.root_name(target.pod_name)
         pod_dir = target.sandbox.sources_root.join(root_name)
         module_headers = pod_dir.join(Constants::COPY_LIBRARY_SWIFT_HEADERS)
-        build_headers.add_files(root_name, module_headers.children) if module_headers.exist?
+        module_paths = build_headers.add_files(root_name, module_headers.children) if module_headers.exist?
+        module_paths
       end
     end
 
@@ -127,9 +137,8 @@ module ProjectGen
     # This output is valid YAML so it can be parsed with 3rd party tools
     #
     def print_pod_archive_infos(sdk, archive_path)
-      $stdout.puts('  - Archive: ')
-      $stdout.puts("    Type:    #{sdk}")
-      $stdout.puts("    path:    #{archive_path}")
+      Results.puts("  - Archive: #{sdk}")
+      Results.puts("    path:    #{archive_path}")
     end
   end
 end

@@ -66,29 +66,28 @@ generator = ProjectGen::ProjectGenerator.new(include_podspecs.first, @sources, @
 generator.local = false
 generator.no_clean       = false
 generator.allow_warnings = true
-generator.no_subspecs    = true
-generator.only_subspec   = false
+generator.only_subspec   = %w[AFNetworking/UIKit AFNetworking/Reachability]
 generator.use_frameworks = product_type == :dynamic_framework
 generator.use_static_frameworks = product_type == :framework
 generator.use_modular_headers = use_module
-generator.skip_import_validation = true
 generator.external_podspecs = external_podspecs.drop(1)
 generator.swift_version = swift_version
 generator.configuration = configuration
 # xcframework gen
 xc_gen = ProjectGen::XcframeworkGen.new(generator)
-xc_gen.generate_xcframework(output_dir)
+xc_gen.generate_xcframework(output_dir, build_library_for_distribution: true)
 ```
 
 other options:
 
 ```ruby
 ['--no-build', 'Is or is not to build xcframework'],
-['--no-local', 'podpsecs is local or not'],
-['--output-dir=<path>', 'Gen output dir'],
+['--build-library-for-distribution', ' Enables BUILD_LIBRARY_FOR_DISTRIBUTION'],
+['--use-latest', 'When multiple dependencies with different sources, use latest.'],
+['--local', 'podpsecs is local or not'],
+['--output-dir=/project/dir/', 'Gen output dir'],
 ['--allow-warnings', 'Gen even if warnings are present'],
-['--subspec=NAME', 'Gen only the given subspec'],
-['--no-subspecs', 'Gen skips validation of subspecs'],
+['--subspecs=NAME/NAME', 'Gen only the given subspecs'],
 ['--no-clean', 'Gen leaves the build directory intact for inspection'],
 ['--use-libraries', 'Gen uses static libraries to install the spec'],
 ['--use-modular-headers', 'Gen uses modular headers during installation'],
@@ -97,7 +96,6 @@ other options:
 "(defaults to #{Pod::TrunkSource::TRUNK_REPO_URL}). Multiple sources must be comma-delimited"],
 ['--platforms=ios,macos', 'Gen against specific platforms (defaults to all platforms supported by the ' \
 'podspec). Multiple platforms must be comma-delimited'],
-['--private', 'Gen skips checks that apply only to public specs'],
 ['--swift-version=VERSION', 'The `SWIFT_VERSION` that should be used to gen the spec. ' \
 'This takes precedence over the Swift versions specified by the spec or a `.swift-version` file'],
 ['--include-podspecs=**/*.podspec', 'Additional ancillary podspecs which are used for gening via :path'],

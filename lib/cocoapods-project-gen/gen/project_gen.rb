@@ -2,13 +2,92 @@ require 'fileutils'
 
 module ProjectGen
   autoload :PodDirCopyCleaner, 'cocoapods-project-gen/gen/pod/pod_copy_cleaner'
-  class ProjectGenerator < Pod::Validator
+
+  class ProjectGenerator
     require 'cocoapods-project-gen/gen/pod/swift_module_helper'
     require 'cocoapods-project-gen/gen/pod/project_gen_helper'
 
-    include Pod
     include ProjectGen::SwiftModule
     include ProjectGen::Helper
+    include Pod::Config::Mixin
+
+    # !@group results
+
+    attr_reader :results
+    #-------------------------------------------------------------------------#
+
+    #  @!group Configuration
+
+    # When multiple dependencies with different sources, use latest.
+    #
+    attr_accessor :use_latest
+
+    # @return [String] The SWIFT_VERSION that should be used to validate the pod. This is set by passing the
+    # `--swift-version` parameter during validation.
+    #
+    attr_accessor :swift_version
+    # @return [Boolean] whether the linter should not clean up temporary files
+    #         for inspection.
+    #
+    attr_accessor :no_clean
+
+    # @return [Boolean] whether the linter should fail as soon as the first build
+    #         variant causes an error. Helpful for i.e. multi-platforms specs,
+    #         specs with subspecs.
+    #
+    attr_accessor :fail_fast
+
+    # @return [Boolean] whether the validation should be performed against the root of
+    #         the podspec instead to its original source.
+    #
+    #
+    attr_accessor :local
+    alias local? local
+
+    # @return [Boolean] Whether the validator should fail on warnings, or only on errors.
+    #
+    attr_accessor :allow_warnings
+
+    # @return [String] name of the subspec to check, if nil all subspecs are checked.
+    #
+    attr_accessor :only_subspecs
+
+    # @return [Boolean] Whether frameworks should be used for the installation.
+    #
+    attr_accessor :use_frameworks
+
+    # @return [Boolean] Whether modular headers should be used for the installation.
+    #
+    attr_accessor :use_modular_headers
+
+    # @return [Boolean] Whether static frameworks should be used for the installation.
+    #
+    attr_accessor :use_static_frameworks
+
+    # @return [String] A glob for podspecs to be used during building of
+    #         the local Podfile via :path.
+    #
+    attr_accessor :include_podspecs
+
+    # @return [String] A glob for podspecs to be used during building of
+    #         the local Podfile via :podspec.
+    #
+    attr_accessor :external_podspecs
+
+    # !@group Helpers
+
+    # @return [Array<String>] an array of source URLs used to create the
+    #         {Podfile} used in the linting process
+    #
+    attr_reader :source_urls
+
+    # @return configuration
+    #
+    attr_accessor :configuration
+
+    #-------------------------------------------------------------------------#
+    # @return [Boolean]
+    #
 
     # Initialize a new instance
     #
@@ -31,101 +110,111 @@ module ProjectGen
     # @param  [Boolean] Whether modular headers should be used for the installation.
     #
     def self.new_from_local(podspecs = [], source_urls = [Pod::TrunkSource::TRUNK_REPO_URL], platforms = [], product_type = :framework, configuration = :release, swift_version = nil, use_modular_headers: false)
-      generator = new(podspecs[0], source_urls, platforms)
+      generator = new(source_urls, platforms)
       generator.local = true
-      generator.no_subspecs    = true
-      generator.only_subspec   = nil
+      generator.no_subspecs = true
+      generator.only_subspecs = nil
       generator.no_clean       = false
       generator.allow_warnings = true
       generator.use_frameworks = product_type == :dynamic_framework
       generator.use_static_frameworks = product_type == :framework
-      generator.skip_import_validation = true
-      generator.external_podspecs = podspecs.drop(1)
+      generator.include_podspecs = podspecs
       generator.configuration = configuration
-      generator.skip_tests = true
       generator.use_modular_headers = use_modular_headers
-      generator.swift_version = swift_version unless swift_version.nil?
+      generator.swift_version = swift_version
       generator
+    end
+
+    # Initialize a new instance
+    #
+    # @param  [Array<String>] source_urls
+    #         the Source URLs to use in creating a {Podfile}.
+    #
+    # @param  [Array<String>] platforms
+    #         the platforms to lint.
+    #
+    def initialize(source_urls, platforms = [])
+      @source_urls = source_urls.map { |url| config.sources_manager.source_with_name_or_url(url) }.map(&:url)
+      @platforms = platforms.map do |platform|
+        result =  case platform.to_s.downcase
+                  # Platform doesn't recognize 'macos' as being the same as 'osx' when initializing
+                  when 'macos' then Pod::Platform.macos
+                  else Pod::Platform.new(platform, nil)
+                  end
+        unless Constants.valid_platform?(result)
+          raise Informative, "Unrecognized platform `#{platform}`. Valid platforms: #{VALID_PLATFORMS.join(', ')}"
+        end
+
+        result
+      end
+      @allow_warnings = true
+      @use_frameworks = true
+      @use_latest = true
     end
 
     # Create app project
     #
     # @param [String, Pathname] dir the temporary directory used by the Gen.
     #
-    # @param  [block<platform, pod_targets, valid>] &block the block to execute inside the lock.
+    # @param  [block<platforms, pod_targets, valid>] &block the block to execute inside the lock.
     #
-    def generate!(dir, &block)
-      dir = Pathname(dir)
-      @results = []
-      # Replace default spec with a subspec if asked for
-      a_spec = spec
-      if spec && @only_subspec
-        subspec_name = @only_subspec.start_with?(spec.root.name) ? @only_subspec : "#{spec.root.name}/#{@only_subspec}"
-        a_spec = spec.subspec_by_name(subspec_name, true, true)
-        @subspec_name = a_spec.name
-      end
-      @validation_dir = dir
+    def generate!(work_dir, &block)
+      @project_gen_dir = Pathname(work_dir)
+      @results = Results.new
       unless config.silent?
         podspecs.each do |spec|
-          Pod::UI.print " -> #{spec.name}\r\n"
+          subspecs = determine_subspecs[spec]
+          if subspecs && !subspecs.empty?
+            subspecs.each { |s| Results.puts " -> #{s}\r\n" }
+          else
+            Results.puts " -> #{spec.name}\r\n"
+          end
         end
       end
       $stdout.flush
-      send(:perform_linting) if respond_to?(:perform_linting)
-      install(a_spec, dir, &block) if a_spec && !quick
-      Pod::UI.puts ' -> '.send(result_color) << (a_spec ? a_spec.to_s : file.basename.to_s)
-      print_results
+      perform_linting
+      platforms, pod_targets, valid = install
+      @results.print_results
+      block.call(platforms, pod_targets, @clean, @fail_fast) if !block.nil? && valid
     end
 
-    def pod_targets
-      @installer.pod_targets
+    # @return [Pathname] the temporary directory used by the linter.
+    #
+    def project_gen_dir
+      @project_gen_dir ||= Pathname(Dir.mktmpdir(['cocoapods-project-gen-', "-#{spec.name}"]))
     end
 
     private
 
-    def install(spec, dir, &block)
-      if spec.non_library_specification?
-        error('spec', "Validating a non library spec (`#{spec.name}`) is not supported.")
-        return false
-      end
-      platforms = determine_platform
-      begin
-        setup_validation_environment
-        create_app_project(platforms)
-        handle_local_pod(platforms)
-        install_pod(platforms)
-        validate_swift_version
-        add_app_project_import(platforms)
-        validate_vendored_dynamic_frameworks(platforms)
-        valid = validated?
-        ts = pod_targets.each_with_object({}) do |pod_target, sum|
-          name = pod_target.root_spec
-          sum[name] ||= []
-          sum[name] << pod_target
-          sum
+    def install
+      podspec = podspecs.find(&:non_library_specification?)
+      if podspec
+        error('spec', "Validating a non library spec (`#{podspec.name}`) is not supported.")
+        [determine_platforms, specs_for_pods, false]
+      else
+        begin
+          setup_gen_environment
+          create_app_project
+          download_or_copy_pod
+          install_pod
+          validate_swift_version
+          add_app_project_import
+          validate_vendored_dynamic_frameworks
+          valid = validated?
+          results.note('Project gen', 'finish!') if valid
+          [determine_platforms, specs_for_pods, valid]
+        rescue StandardError => e
+          message = e.to_s
+          message << "\n" << e.backtrace.join("\n") << "\n" if config.verbose?
+          error('unknown', "Encountered an unknown error (#{message}) during validation.")
+          [determine_platforms, specs_for_pods, false]
         end
-        block.call(platforms, ts, valid, @no_clean) unless block&.nil?
-        return false if fail_fast && !valid
-
-        generate_subspec(spec, dir, &block) unless @no_subspecs
-      rescue StandardError => e
-        message = e.to_s
-        raise Pod::Informative, "Encountered an unknown error\n\n#{message})\n\n#{e.backtrace * "\n"}"
       end
     end
 
-    def generate_subspec(spec, dir, &block)
-      spec.subspecs.reject(&:non_library_specification?).send(fail_fast ? :all? : :each) do |subspec|
-        @subspec_name = subspec.name
-        install(subspec, dir, &block)
-      end
-    end
-
-    def handle_local_pod(platforms)
-      sandbox = Pod::Sandbox.new(@validation_dir + 'Pods')
-      podfile = podfile_from_spec(platforms, use_frameworks,
-                                  use_modular_headers, use_static_frameworks)
-
+    def download_or_copy_pod
+      sandbox = Pod::Sandbox.new(@project_gen_dir + 'Pods')
+      podfile = podfile_from_spec(use_frameworks, use_modular_headers, use_static_frameworks)
       @installer = Pod::Installer.new(sandbox, podfile)
       @installer.use_default_plugins = false
       @installer.has_dependencies = podspecs.any? { |podspec| !podspec.all_dependencies.empty? }
@@ -133,8 +222,8 @@ module ProjectGen
          write_lockfiles].each do |m|
         case m
         when :clean_pod_sources
-          ProjectGen::PodDirCopyCleaner.new(include_specification).copy_and_clean(config.sandbox_root, sandbox)
-          include_specification.each { |s| sandbox.development_pods.delete(s.name) }
+          ProjectGen::PodDirCopyCleaner.new(include_specifications).copy_and_clean(config.sandbox_root, sandbox)
+          include_specifications.each { |s| sandbox.development_pods.delete(s.name) }
           @installer.send(m)
         else
           @installer.send(m)
@@ -144,13 +233,12 @@ module ProjectGen
           # no-local --> source from cdn
           # external_podspecs --> source in cdn
           # include_podspecs  --> source in local
-          include_specification.each do |spec|
+          include_specifications.each do |spec|
             sandbox.store_local_path(spec.name, spec.defined_in_file, Utils.absolute?(spec.defined_in_file))
           end
         end
       end
-      library_targets = pod_targets.select(&:build_as_library?)
-      add_swift_library_compatibility_header(library_targets)
+      add_swift_library_compatibility_header(@installer.pod_targets)
     end
   end
 end

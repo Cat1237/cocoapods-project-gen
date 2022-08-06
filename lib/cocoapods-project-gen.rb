@@ -10,4 +10,5 @@ module ProjectGen
   autoload :XcframeworkGen, 'cocoapods-project-gen/gen/xcframework_gen'
   autoload :Constants, 'cocoapods-project-gen/gen/constants'
   autoload :Utils, 'cocoapods-project-gen/gen/utils'
+  autoload :Results, 'cocoapods-project-gen/gen/results'
 end

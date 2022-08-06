@@ -27,19 +27,16 @@ module ProjectGen
     #
     # @param [Bool] Build xcframework.
     #
-    def generate_xcframework(work_dir, configuration = nil, build: true)
+    def generate_xcframework(work_dir, configuration = nil, build: true, build_library_for_distribution: false)
       app_root = Pathname.new(work_dir).expand_path
       o_value = nil
-      @project_gen.generate!(app_root) do |platforms, pod_targets, validated, no_clean|
-        raise 'Could not generator App.xcodeproj' unless validated
-
+      @project_gen.generate!(app_root) do |platforms, pod_targets, no_clean, fail_fast|
         if build
-          bm = BuildManager.new(app_root, no_clean: no_clean)
-          o_value = bm.create_xcframework_products!(platforms, pod_targets, configuration)
+          bm = BuildManager.new(app_root, no_clean: no_clean, fail_fast: fail_fast)
+          o_value = bm.create_xcframework_products!(platforms, pod_targets, configuration, build_library_for_distribution: build_library_for_distribution)
         else
           o_value = pod_targets
         end
-        $stdout.puts 'finish...'
       end
       o_value
     end
