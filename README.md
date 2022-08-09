@@ -78,6 +78,17 @@ xc_gen = ProjectGen::XcframeworkGen.new(generator)
 xc_gen.generate_xcframework(output_dir, build_library_for_distribution: true)
 ```
 
+local or no local:
+
+```ruby
+require 'cocoapods-project-gen'
+podspecs = Pathname.glob(File.expand_path('./Resources/Specs', __dir__) + '/*.podspec{.json,}')
+local_podspecs = Pathname.glob(File.expand_path('./Resources/Specs/local/**', __dir__) + '/*.podspec{.json,}').join(',')
+no_local_podspecs = Pathname.glob(File.expand_path('./Resources/Specs/no_local/', __dir__) + '**/*.podspec{.json,}').join(',')
+out_put = File.expand_path('./Resources/output', __dir__)
+vs = ProjectGen::Command.run(['gen', '--use-libraries', '--build-library-for-distribution', '--sources=https://github.com/CocoaPods/Specs.git', *podspecs, "--include-podspecs=#{local_podspecs}", "--external-podspecs=#{no_local_podspecs}", "--output-dir=#{out_put}"])
+```
+
 other options:
 
 ```ruby

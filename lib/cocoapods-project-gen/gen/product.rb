@@ -150,7 +150,7 @@ module ProjectGen
     end
 
     def add_file_accessors_paths_to_products_group(file_accessor_key)
-      fs = file_accessors.flat_map { |file_accessor| file_accessor.send(file_accessor_key) }
+      fs = file_accessors.flat_map { |file_accessor| file_accessor.send(file_accessor_key) }.compact
       fs.each do |f|
         relative_path = f.relative_path_from(pod_dir)
         full_source_path = product_path.join(relative_path)
