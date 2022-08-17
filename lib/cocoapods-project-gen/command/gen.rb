@@ -90,12 +90,14 @@ module ProjectGen
           generator.external_podspecs.uniq!
         end
         if generator.include_podspecs.empty? && generator.external_podspecs.empty?
-          raise Informative, 'Unable to find podspecs in the working. Is local or not local?'
+          results = Results.new
+          results.error('gen', 'Unable to find podspecs in the working dir. Is local or not local?')
+          results.print_results
+        else
+          generator.configuration = @configuration
+          xc_gen = ProjectGen::XcframeworkGen.new(generator)
+          xc_gen.generate_xcframework(@output_dir, build: @build, build_library_for_distribution: @build_library_for_distribution)
         end
-
-        generator.configuration = @configuration
-        xc_gen = ProjectGen::XcframeworkGen.new(generator)
-        xc_gen.generate_xcframework(@output_dir, build: @build, build_library_for_distribution: @build_library_for_distribution)
       end
 
       private

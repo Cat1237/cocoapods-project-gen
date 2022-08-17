@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cocoapods-project-gen (0.2.4)
+    cocoapods-project-gen (0.2.5)
       cocoapods (~> 1.11.3)
 
 GEM
